@@ -1,0 +1,540 @@
+#VRML V2.0 utf8
+
+#Created with V-Realm Builder v2.0
+#Integrated Data Systems Inc.
+#www.ids-net.com
+
+
+Background {
+	groundAngle	[ 0.9, 1.5, 1.57 ]
+	groundColor	[ 0 0.8 0,
+			  0.174249 0.82 0.187362,
+			  0.467223 0.82 0.445801,
+			  0.621997 0.67 0.600279 ]
+	skyAngle	[ 0.1, 1.2, 1.57 ]
+	skyColor	[ 0.76238 0.8 0.1427,
+			  0.277798 0.219779 0.7,
+			  0.222549 0.390234 0.7,
+			  0.60094 0.662637 0.69 ]
+}
+DEF CoupledTanks Transform {
+	translation	-0.8598 7.9846 -9.2175
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+			texture	ImageTexture {
+				url	"texture/CoupledTanks_VR.jpg"
+			}
+
+		}
+
+		geometry	Box {
+			size	50 50 20
+		}
+
+	}
+}
+DEF Valve_t Transform {
+	translation	-0.3134 -0.3885 1
+	rotation	0 0 -1  0.439823
+	scale	1.7 1.7 1
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+		}
+
+		geometry	Extrusion {
+			beginCap	TRUE
+			endCap	TRUE
+			ccw	FALSE
+			convex	TRUE
+			creaseAngle	0
+			solid	TRUE
+			crossSection	[ 0 -0.0402475,
+					  0.932472 0.361242,
+					  0.739009 0.673696,
+					  0.445738 0.895163,
+					  0 -0.0402475,
+					  -0.273663 0.961826,
+					  -0.602634 0.798017,
+					  -0.850217 0.526432,
+					  -0.965939 0.281732,
+					  0 -0.0402475,
+					  -0.850217 -0.526432,
+					  -0.602635 -0.798017,
+					  -0.273663 -0.961826,
+					  0 -0.0402475,
+					  0.445738 -0.895163,
+					  0.739009 -0.673696,
+					  0.932472 -0.361241,
+					  0 -0.0402475 ]
+			orientation	[ 0 0 1  0,
+					  0 0 1  0 ]
+			scale	[ 1 1,
+					  1 1 ]
+			spine	[ 0 0 0,
+					  0.0359911 0.0714356 0.507465 ]
+		}
+
+	}
+}
+DEF Valve_o2 Transform {
+	translation	8.5376 -5.2614 1
+	scale	1.7 1.7 1
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+		}
+
+		geometry	Extrusion {
+			beginCap	TRUE
+			endCap	TRUE
+			ccw	TRUE
+			convex	TRUE
+			creaseAngle	0
+			solid	TRUE
+			crossSection	[ 0 -0.0402475,
+					  0.932472 -0.361242,
+					  0.739009 -0.673696,
+					  0.445738 -0.895164,
+					  0 -0.0134158,
+					  -0.273664 -0.961825,
+					  -0.602635 -0.798017,
+					  -0.850218 -0.526432,
+					  0.0268316 -0.0134158,
+					  -0.982973 0.18375,
+					  -0.850217 0.526433,
+					  -0.602634 0.798018,
+					  -0.273663 0.961826,
+					  0 -0.0134158,
+					  0.445739 0.895163,
+					  0.739009 0.673695,
+					  0.932472 0.361241,
+					  0 -0.0402475 ]
+			orientation	[ 0 0 1  0,
+					  0 0 1  0 ]
+			scale	[ 1 1,
+					  1 1 ]
+			spine	[ 0 0 0,
+					  0.00744189 -0.0523739 0.385371 ]
+		}
+
+	}
+}
+DEF Valve_o1 Transform {
+	translation	-9.74956 -5.26278 1
+	scale	1.7 1.7 1
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+		}
+
+		geometry	Extrusion {
+			beginCap	TRUE
+			endCap	TRUE
+			ccw	TRUE
+			convex	TRUE
+			creaseAngle	0
+			solid	TRUE
+			crossSection	[ 0 -0.0402475,
+					  0.932472 -0.361242,
+					  0.739009 -0.673696,
+					  0.445738 -0.895164,
+					  0 -0.0134158,
+					  -0.273664 -0.961825,
+					  -0.602635 -0.798017,
+					  -0.850218 -0.526432,
+					  0.0268316 -0.0134158,
+					  -0.982973 0.18375,
+					  -0.850217 0.526433,
+					  -0.602634 0.798018,
+					  -0.273663 0.961826,
+					  0 -0.0134158,
+					  0.445739 0.895163,
+					  0.739009 0.673695,
+					  0.932472 0.361241,
+					  0 -0.0402475 ]
+			orientation	[ 0 0 1  0,
+					  0 0 1  0 ]
+			scale	[ 1 1,
+					  1 1 ]
+			spine	[ 0 0 0,
+					  0.00744189 -0.0523739 0.385371 ]
+		}
+
+	}
+}
+DEF Viewpoint_A Viewpoint {
+	orientation	0.0372956 -0.999215 0.0133229  0.129733
+	position	-10.6591 14.8148 61.6995
+	description	"ViewPoint"
+}
+DEF Viewpoint_B Viewpoint {
+	orientation	-0.999352 0.0160878 0.0322023  0.454836
+	position	0.0347719 39.7217 65.4531
+}
+DEF Viewpoint_C Viewpoint {
+	orientation	0.0146331 0.999892 0.00151109  0.350806
+	position	25.3299 15.5367 68.4199
+}
+DEF Pump Transform {
+	translation	-19.3309 1.0761 1
+	scale	1.7 1.7 1
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+		}
+
+		geometry	Extrusion {
+			beginCap	TRUE
+			endCap	TRUE
+			ccw	TRUE
+			convex	TRUE
+			creaseAngle	0
+			solid	TRUE
+			crossSection	[ -0.0268316 0.0402475,
+					  0.932472 -0.361242,
+					  0.739009 -0.673696,
+					  0.445738 -0.895164,
+					  0 -0.0134158,
+					  -0.273664 -0.961825,
+					  -0.602635 -0.798017,
+					  -0.850218 -0.526432,
+					  0 0.0402475,
+					  -0.965939 0.389059,
+					  -0.850217 0.526433,
+					  -0.602634 0.798018,
+					  -0.273663 0.961826,
+					  0.0268316 -0.0134158,
+					  0.445739 0.895163,
+					  0.739009 0.673695,
+					  0.932472 0.361241,
+					  -0.0268316 0.0402475 ]
+			orientation	[ 0 0 1  0,
+					  0 0 1  0 ]
+			scale	[ 1 1,
+					  1 1 ]
+			spine	[ 0 0 0,
+					  -0.0049693 0.046006 0.347066 ]
+		}
+
+	}
+}
+DEF CT_Pump Transform {
+	translation	-19.2265 1.23184 -0.0999845
+	rotation	-1 -1.79265e-006 -7.40658e-009  1.5708
+	scale	0.999995 0.999996 0.999996
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.3
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	4
+			radius	2.6
+		}
+
+	}
+}
+DEF CT_valve_o1 Transform {
+	translation	-9.70314 -5.22842 -0.0999791
+	rotation	-5.2364e-009 0.707107 0.707107  3.14159
+	scale	0.999996 0.999997 0.999998
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.3
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	4
+			radius	2.6
+		}
+
+	}
+}
+DEF CT_pipe_o1a Transform {
+	translation	-9.76483 -1.21808 0.700001
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.3
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	2.9
+			radius	1
+		}
+
+	}
+}
+DEF CT_pipe_o1b Transform {
+	translation	-9.76483 -10.3428 0.700001
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.3
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	5.1
+			radius	1
+		}
+
+	}
+}
+DEF CT_valve_t Transform {
+	translation	-0.2142 -0.3017 0
+	rotation	-8.03887e-014 0.707107 0.707107  3.14159
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.3
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	4
+			radius	2.6
+		}
+
+	}
+}
+DEF CT_valve_o2 Transform {
+	translation	8.57815 -5.24682 1.66893e-006
+	rotation	5.73773e-008 0.707107 0.707107  3.14159
+	scale	1 0.999999 1
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.3
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	4
+			radius	2.6
+		}
+
+	}
+}
+DEF CT_pipe_inb Transform {
+	translation	-19.1938 7.07191 0.700001
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.3
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	6.6
+			radius	1
+		}
+
+	}
+}
+DEF CT_pipe_ina Transform {
+	translation	-19.1482 -7.12354 0.700001
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.3
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	11.7
+			radius	1
+		}
+
+	}
+}
+DEF CT_pipe_tb Transform {
+	translation	3.0166 -0.4753 0.7
+	rotation	0.580295 -0.580292 -0.571418  4.17987
+	scale	1 0.999999 1
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.3
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	2.4
+			radius	1
+		}
+
+	}
+}
+DEF CT_pipe_ta Transform {
+	translation	-3.7522 -0.3885 0.7
+	rotation	0 0 1  1.5708
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.3
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	3.4
+			radius	1
+		}
+
+	}
+}
+DEF CT_pipe_o2a Transform {
+	translation	8.6773 -1.4298 0.7
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.3
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	3.2
+			radius	1
+		}
+
+	}
+}
+DEF CT_pipe_o2b Transform {
+	translation	8.6773 -10.3068 0.7
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.3
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	5.3
+			radius	1
+		}
+
+	}
+}
+DEF water1 Transform {
+	translation	-10 0.673559 1.43051e-006
+	center	0 -0.5 0
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				diffuseColor	0.266944 0.557017 0.8
+				transparency	0.1
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	1
+			radius	3.3
+			side	TRUE
+			top	TRUE
+		}
+
+	}
+}
+DEF water2 Transform {
+	translation	8.8504 0.678836 1.43051e-006
+	center	0 -0.5 0
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				ambientIntensity	0.2
+				diffuseColor	0.27 0.56 0.8
+				transparency	0.1
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	1
+			radius	3.3
+		}
+
+	}
+}
+DEF tank1 Transform {
+	translation	-10 15.0341 1.43051e-006
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.5
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	29.7
+			radius	3.3
+		}
+
+	}
+}
+DEF tank2 Transform {
+	translation	8.85035 15.1131 -2.38419e-006
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				transparency	0.5
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	29.7
+			radius	3.3
+		}
+
+	}
+}
+DEF pool Transform {
+	translation	-4.9457 -14.7648 0.1
+	rotation	0 0 -1  1.5708
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				diffuseColor	0.394457 0.46273 0.8
+				transparency	0.5
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	32.1
+			radius	2
+		}
+
+	}
+}

@@ -1,0 +1,1961 @@
+Model {
+  Name			  "CoupledTanks"
+  Version		  6.5
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    0
+    NumRootOutports	    0
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.168"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "windows-1252"
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  CloseFcn		  "vrclose all;\nclear figureVR worldVR;"
+  InitFcn		  "g = 9.81; %gravitational constant\n\n% showVR = 1; "
+"%show VR world\n% h1_init = 0; %initial condition\n% h2_init = 0; %initial co"
+"ndition"
+  Created		  "Mon Mar 19 13:02:11 2007"
+  Creator		  "H"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "Roubalj"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Fri Jun 19 15:04:32 2009"
+  ModelVersionFormat	  "1.%<AutoIncrement:168>"
+  ConfigurationManager	  "None"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ProdHWDeviceType	  "32-bit Generic"
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      1
+      Version		      "1.2.0"
+      Array {
+	Type			"Handle"
+	Dimension		7
+	Simulink.SolverCC {
+	  $ObjectID		  2
+	  Version		  "1.2.0"
+	  StartTime		  "0.0"
+	  StopTime		  "2000"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "1e-1"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  Solver		  "ode45"
+	  SolverName		  "ode45"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  RateTranMode		  "Deterministic"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  3
+	  Version		  "1.2.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveFormat		  "Array"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  4
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    5
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "InitFltsAndDblsToZero"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.2.0"
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnforceIntegerDowncast  on
+	  ExpressionFolding	  on
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  ParameterPooling	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  on
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  BufferReusableBoundary  on
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  5
+	  Version		  "1.2.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  CheckSSInitialOutputMsg on
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "TryResolveAllWithWarning"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  ModelReferenceSimTargetVerbose off
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StrictBusMsg		  "Warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  6
+	  Version		  "1.2.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  7
+	  Version		  "1.2.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  8
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    "IncludeHyperlinkInReport"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.2.0"
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      9
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"InsertBlockDesc"
+		Cell			"SFDataObjDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.2.0"
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      IncDataTypeInIds	      off
+	      PrefixModelToSubsysFcnNames on
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      SimulinkBlockComments   on
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      10
+	      Array {
+		Type			"Cell"
+		Dimension		13
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportNonFinite"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.2.0"
+	      TargetFcnLib	      "ansi_tfl_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      GenFloatMathFcnCalls    "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      IncludeMdlTerminateFcn  on
+	      CombineOutputUpdateFcns off
+	      SuppressErrorStatus     off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      SimulationMode	      "normal"
+      CurrentDlgPage	      "Solver"
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    1
+  }
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Arial"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParameterDataTypeMode   "Same as input"
+      ParameterDataType	      "sfix(16)"
+      ParameterScalingMode    "Best Precision: Matrix-wise"
+      ParameterScaling	      "2^0"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      DataType		      "auto"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchByCopyingInsideSignal off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Integrator
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+      IgnoreLimit	      off
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      DataType		      "auto"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Reference
+    }
+    Block {
+      BlockType		      Scope
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+    }
+    Block {
+      BlockType		      Step
+      Time		      "1"
+      Before		      "0"
+      After		      "1"
+      SampleTime	      "-1"
+      VectorParams1D	      on
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      on
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Arial"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  LineDefaults {
+    FontName		    "Arial"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "CoupledTanks"
+    Location		    [5, 74, 658, 396]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      SubSystem
+      Name		      "COUPLED TANKS\nVR Model"
+      Ports		      [4, 2]
+      Position		      [345, 67, 525, 193]
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      MaskHideContents	      off
+      MaskType		      "Coupled Tanks (CT) in laboratory K26"
+      MaskDescription	      "Coupled Tanks (CT) in laboratory K26 - Virtual "
+"Reality\nReal-Time Workshop generated S-function."
+      MaskHelp		      "Couple Tanks in laboratory K26 - Virtual Realit"
+"y. <br><br>\n\n\nThis is a&nbsp;virtual model of the Coupled Tanks apparatus "
+"in Laboratory of automatic control \ntheory&nbsp;26 (<a href=\"http://support"
+".dce.felk.cvut.cz/lab26/\" target=\"_blank\">http://support.dce.felk.cvut.cz/"
+"lab26/</a>), \nwhich consists of a&nbsp;gear-pump, two tanks (left and right)"
+", inflow and outflow pipes and transfer (V<sub>t</sub>) and \noutput valves ("
+"V<sub>o1</sub>, V<sub>o2</sub>). The&nbsp;left tank is filled with the&nbsp;f"
+"luid by the&nbsp;gear-pump \ncontroller by the&nbsp;voltage&nbsp;<em>u</em>&n"
+"bsp;[V]. The&nbsp;fluid can drain from the&nbsp;left tank through\nthe&nbsp;v"
+"alve&nbsp;<em>v</em><sub>o1</sub>&nbsp;[%] or can drain to the&nbsp;right tan"
+"k through the&nbsp;transfer \nvalve&nbsp;<em>v</em><sub>t</sub>&nbsp;[%]. The"
+"&nbsp;fluid drains away from the&nbsp;right tank through \nthe&nbsp;valve&nbs"
+"p;<em>v</em><sub>o2</sub>&nbsp;[%].<br><br>\n\nThe&nbsp;system input are the&"
+"nbsp;voltage of the&nbsp;motor of the&nbsp;gear-pump&nbsp;<em>u</em>&nbsp;[V]"
+"\nand the&nbsp;opening of \nthe&nbsp;valves&nbsp;<em>v</em><sub>o1</sub>,&nbs"
+"p;<em>v</em><sub>t</sub>,&nbsp;<em>v</em><sub>o2</sub>&nbsp;[%]. \nThe&nbsp;s"
+"ystem outputs are the&nbsp;levels of the&nbsp;fluid in \nthe&nbsp;tanks&nbsp;"
+"<em>h</em><sub>1</sub>,&nbsp;<em>h</em><sub>2</sub>&nbsp;[cm]. \nThe&nbsp;dyn"
+"amics of the&nbsp;gear-pump is neglected. More information can be found on th"
+"e&nbsp;website \n<a href=\"http://support.dce.felk.cvut.cz/lab26/\" target=\""
+"_blank\">http://support.dce.felk.cvut.cz/lab26/</a>.<br><br>\n\n\nIn the mask"
+" of the model, it can be set:\n<ul>\n<li>Initial fluid level in the left tank"
+"</li>\n<li>Initial fluid level in the right tank.</li>\n</ul><br><br>\n\n\nCo"
+"pyright: 2008, Jan Kricka, Jirka Roubal, Petr Husek.\n"
+      MaskPromptString	      "Show VirtualWorld?|Initial fluid level in the l"
+"eft tank 1   h1(0)  [cm]|Initial fluid  level in the right tank 2   h2 (0) [c"
+"m]"
+      MaskStyleString	      "checkbox,edit,edit"
+      MaskTunableValueString  "on,on,on"
+      MaskCallbackString      "if strcmp('off',get_param(gcb,'showVR'))\n    v"
+"rclose all;\nelse\n    if exist('figureVR')==0\n        figureVR = vrfigure;"
+"\n    end  \n    if exist('worldVR')==0\n        worldVR = vrworld('CoupledTa"
+"nks_VR.WRL');\n    end\n	if isvalid(figureVR)==0\n        open(worldVR"
+");\n        figureVR = vrfigure(worldVR,[650 80 550 350]);\n	end\nend|"
+"|"
+      MaskEnableString	      "on,on,on"
+      MaskVisibilityString    "on,on,on"
+      MaskToolTipString	      "on,on,on"
+      MaskVarAliasString      ",,"
+      MaskVariables	      "showVR=@1;sfcnParam1=@2;sfcnParam2=@3;"
+      MaskDisplay	      "image(imread('CoupledTanks_Image.jpg'));\nport_"
+"label ('input',1,'u [V]');\nport_label ('input',2,'Vo1 [-]');\nport_label ('i"
+"nput',3,'Vt [-]');\nport_label ('input',4,'Vo2 [-]');\nport_label ('output',1"
+",'h1 [cm]');\nport_label ('output',2,'h2 [cm]');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "on|0|0"
+      MaskTabNameString	      ",,"
+      System {
+	Name			"COUPLED TANKS\nVR Model"
+	Location		[16, 256, 892, 692]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Pump"
+	  Position		  [25, 50, 45, 70]
+	  BackgroundColor	  "red"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Valve Vo1"
+	  Position		  [25, 85, 45, 105]
+	  BackgroundColor	  "red"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Valve Vt"
+	  Position		  [25, 120, 45, 140]
+	  BackgroundColor	  "red"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Valve Vo2"
+	  Position		  [25, 155, 45, 175]
+	  BackgroundColor	  "red"
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  "COUPLED TANKS\nVR Model_sfcn"
+	  Ports			  [4, 6]
+	  Position		  [240, 44, 550, 176]
+	  BackgroundColor	  "darkGreen"
+	  CopyFcn		  "set_param(gcb,'LinkStatus','none');"
+	  FontSize		  12
+	  FontWeight		  "bold"
+	  FunctionName		  "COUPLED_sf"
+	  Parameters		  "sfcnParam1, sfcnParam2"
+	  SFunctionModules	  "   "
+	  MaskDescription	  "Real-Time Workshop generated S-function."
+	  MaskHelp		  "helpview([docroot,'\\toolbox\\rtw\\helptarg"
+"ets.map'],'rtw_Sfunc_target');"
+	  MaskPromptString	  "Generated S-function name (model_sf):|Show "
+"module list|h1_init:|h2_init:"
+	  MaskStyleString	  "edit,checkbox,edit,edit"
+	  MaskTunableValueString  "on,on,on,on"
+	  MaskCallbackString	  "|||"
+	  MaskEnableString	  "on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on"
+	  MaskVarAliasString	  ",,,"
+	  MaskVariables		  "rtw_sf_name=&1;showVar=@2;sfcnParam1=@3;sfc"
+"nParam2=@4;"
+	  MaskInitialization	  "displist = '';\nif ~strcmp(get_param(gcb, '"
+"FunctionName'), rtw_sf_name);\n  set_param(gcb, 'FunctionName', rtw_sf_name);"
+"\nend\n% Check if we are generating RTW code\nrtw_mode = false;\nif strcmpi(g"
+"et_param(bdroot(gcb),'SimulationStatus'),'Initializing')\n	rtw_mode = "
+"strcmpi(get_param(bdroot(gcb),'BuildingRTWCode'),'on') && ...\n	"
+"	~strcmpi(get_param(bdroot(gcb),'TargetStyle'),'SimulationTarget');\ne"
+"nd\nif showVar || rtw_mode\n	if exist('rtwsfunc') == 2 | exist('rtwsfu"
+"nc') == 6\n		tmplist = rtwsfunc(rtw_sf_name,gcb);\n	"
+"	tmplist = ['\\nList of Modules:\\n', tmplist];\n	elseif showVa"
+"r\n		tmplist = '\\nList of Modules:\\nRTW not licensed\\n';\n "
+"	end\nend\nif showVar\n  displist = tmplist;\nend"
+	  MaskDisplay		  "\nport_label('input',1,'Pump');\nport_label"
+"('input',2,'Valve Vo1');\nport_label('input',3,'Valve Vt');\nport_label('inpu"
+"t',4,'Valve Vo2');\nport_label('output',1,'Tank 1');\nport_label('output',2,'"
+"Tank 2');\nport_label('output',3,'q_i');\nport_label('output',4,'q_o1');\npor"
+"t_label('output',5,'q_t');\nport_label('output',6,'q_o2');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "COUPLED_sf|off|sfcnParam1|sfcnParam2"
+	  MaskTabNameString	  ",,,"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Subsystem"
+	  Ports			  [6, 6]
+	  Position		  [480, 219, 550, 401]
+	  Orientation		  "left"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Subsystem"
+	    Location		    [17, 256, 462, 703]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "q_i"
+	      Position		      [25, 43, 55, 57]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "q_o1"
+	      Position		      [25, 108, 55, 122]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "q_t"
+	      Position		      [25, 173, 55, 187]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "q_o2"
+	      Position		      [25, 238, 55, 252]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "h_1"
+	      Position		      [25, 303, 55, 317]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "h_2"
+	      Position		      [25, 363, 55, 377]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain1"
+	      Position		      [85, 295, 115, 325]
+	      ShowName		      off
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain2"
+	      Position		      [85, 355, 115, 385]
+	      ShowName		      off
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain3"
+	      Position		      [85, 100, 115, 130]
+	      ShowName		      off
+	      Gain		      "180/pi"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain4"
+	      Position		      [85, 165, 115, 195]
+	      ShowName		      off
+	      Gain		      "180/pi"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain5"
+	      Position		      [85, 230, 115, 260]
+	      ShowName		      off
+	      Gain		      "180/pi"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain6"
+	      Position		      [85, 35, 115, 65]
+	      ShowName		      off
+	      Gain		      "180/pi"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain7"
+	      Position		      [145, 230, 175, 260]
+	      ShowName		      off
+	      Gain		      "-1"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain8"
+	      Position		      [145, 35, 175, 65]
+	      ShowName		      off
+	      Gain		      "-1"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain9"
+	      Position		      [145, 100, 175, 130]
+	      ShowName		      off
+	      Gain		      "-1"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "VR Signal Expander1"
+	      Ports		      [1, 1]
+	      Position		      [275, 31, 370, 69]
+	      SourceBlock	      "vrlib/VR Signal Expander"
+	      SourceType	      "VR Signal Expander"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData "off"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      outwidth		      "4"
+	      outidx		      "[4]"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "VR Signal Expander2"
+	      Ports		      [1, 1]
+	      Position		      [275, 96, 370, 134]
+	      SourceBlock	      "vrlib/VR Signal Expander"
+	      SourceType	      "VR Signal Expander"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData "off"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      outwidth		      "4"
+	      outidx		      "[4]"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "VR Signal Expander3"
+	      Ports		      [1, 1]
+	      Position		      [275, 161, 370, 199]
+	      SourceBlock	      "vrlib/VR Signal Expander"
+	      SourceType	      "VR Signal Expander"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData "off"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      outwidth		      "4"
+	      outidx		      "[4]"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "VR Signal Expander4"
+	      Ports		      [1, 1]
+	      Position		      [275, 226, 370, 264]
+	      SourceBlock	      "vrlib/VR Signal Expander"
+	      SourceType	      "VR Signal Expander"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData "off"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      outwidth		      "4"
+	      outidx		      "[4]"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "VR Signal Expander5"
+	      Ports		      [1, 1]
+	      Position		      [275, 291, 370, 329]
+	      SourceBlock	      "vrlib/VR Signal Expander"
+	      SourceType	      "VR Signal Expander"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData "off"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      outwidth		      "3"
+	      outidx		      "[2]"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "VR Signal Expander6"
+	      Ports		      [1, 1]
+	      Position		      [275, 351, 370, 389]
+	      SourceBlock	      "vrlib/VR Signal Expander"
+	      SourceType	      "VR Signal Expander"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData "off"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      outwidth		      "3"
+	      outidx		      "[2]"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "fi1"
+	      Ports		      [1, 1]
+	      Position		      [205, 35, 235, 65]
+	      IgnoreLimit	      off
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "fi2"
+	      Ports		      [1, 1]
+	      Position		      [205, 100, 235, 130]
+	      IgnoreLimit	      off
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "fi3"
+	      Ports		      [1, 1]
+	      Position		      [205, 165, 235, 195]
+	      IgnoreLimit	      off
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "fi4"
+	      Ports		      [1, 1]
+	      Position		      [205, 230, 235, 260]
+	      IgnoreLimit	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Q_t"
+	      Position		      [395, 173, 425, 187]
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Q_o2"
+	      Position		      [395, 238, 425, 252]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Q_o1"
+	      Position		      [395, 108, 425, 122]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Q_i"
+	      Position		      [395, 43, 425, 57]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "H_1"
+	      Position		      [395, 303, 425, 317]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "H_2"
+	      Position		      [395, 363, 425, 377]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Line {
+	      SrcBlock		      "Gain9"
+	      SrcPort		      1
+	      DstBlock		      "fi2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain8"
+	      SrcPort		      1
+	      DstBlock		      "fi1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain7"
+	      SrcPort		      1
+	      DstBlock		      "fi4"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain5"
+	      SrcPort		      1
+	      DstBlock		      "Gain7"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "q_o2"
+	      SrcPort		      1
+	      DstBlock		      "Gain5"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "VR Signal Expander4"
+	      SrcPort		      1
+	      DstBlock		      "Q_o2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "fi4"
+	      SrcPort		      1
+	      DstBlock		      "VR Signal Expander4"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain4"
+	      SrcPort		      1
+	      DstBlock		      "fi3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain6"
+	      SrcPort		      1
+	      DstBlock		      "Gain8"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain3"
+	      SrcPort		      1
+	      DstBlock		      "Gain9"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "q_t"
+	      SrcPort		      1
+	      DstBlock		      "Gain4"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "q_o1"
+	      SrcPort		      1
+	      DstBlock		      "Gain3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain2"
+	      SrcPort		      1
+	      DstBlock		      "VR Signal Expander6"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain1"
+	      SrcPort		      1
+	      DstBlock		      "VR Signal Expander5"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "VR Signal Expander6"
+	      SrcPort		      1
+	      DstBlock		      "H_2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "VR Signal Expander5"
+	      SrcPort		      1
+	      DstBlock		      "H_1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "VR Signal Expander1"
+	      SrcPort		      1
+	      DstBlock		      "Q_i"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "VR Signal Expander2"
+	      SrcPort		      1
+	      DstBlock		      "Q_o1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "VR Signal Expander3"
+	      SrcPort		      1
+	      DstBlock		      "Q_t"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "h_2"
+	      SrcPort		      1
+	      DstBlock		      "Gain2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "h_1"
+	      SrcPort		      1
+	      DstBlock		      "Gain1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "q_i"
+	      SrcPort		      1
+	      DstBlock		      "Gain6"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "fi2"
+	      SrcPort		      1
+	      DstBlock		      "VR Signal Expander2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "fi3"
+	      SrcPort		      1
+	      DstBlock		      "VR Signal Expander3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "fi1"
+	      SrcPort		      1
+	      DstBlock		      "VR Signal Expander1"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "VR Sink"
+	  Ports			  [6]
+	  Position		  [240, 223, 385, 397]
+	  Orientation		  "left"
+	  SourceBlock		  "vrlib/VR Sink"
+	  SourceType		  "Virtual Reality Sink"
+	  SampleTime		  "-1"
+	  ViewEnable		  "on"
+	  RemoteChange		  "off"
+	  RemoteView		  "on"
+	  FieldsWritten		  "Valve_t.rotation.4.1.double#Valve_o2.rotati"
+"on.4.1.double#Valve_o1.rotation.4.1.double#Pump.rotation.4.1.double#water1.sc"
+"ale.3.1.double#water2.scale.3.1.double"
+	  WorldFileName		  "CoupledTanks_VR.WRL"
+	  AutoView		  "off"
+	  FigureProperties	  "{}"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "__InputSSForSFun__"
+	  Ports			  [4, 4]
+	  Position		  [100, 39, 200, 186]
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "__InputSSForSFun__"
+	    Location		    [118, 351, 398, 512]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Pump"
+	      Position		      [70, 30, 90, 40]
+	      BackgroundColor	      "red"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Valve Vo1"
+	      Position		      [70, 60, 90, 70]
+	      BackgroundColor	      "red"
+	      NamePlacement	      "alternate"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Valve Vt"
+	      Position		      [70, 90, 90, 100]
+	      BackgroundColor	      "red"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Valve Vo2"
+	      Position		      [70, 120, 90, 130]
+	      BackgroundColor	      "red"
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "__UniqueOutportName__1__"
+	      Position		      [210, 25, 230, 45]
+	      ShowName		      off
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "__UniqueOutportName__2__"
+	      Position		      [210, 55, 230, 75]
+	      ShowName		      off
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "__UniqueOutportName__3__"
+	      Position		      [210, 85, 230, 105]
+	      ShowName		      off
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "__UniqueOutportName__4__"
+	      Position		      [210, 115, 230, 135]
+	      ShowName		      off
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Line {
+	      SrcBlock		      "Valve Vo2"
+	      SrcPort		      1
+	      DstBlock		      "__UniqueOutportName__4__"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Valve Vt"
+	      SrcPort		      1
+	      DstBlock		      "__UniqueOutportName__3__"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Valve Vo1"
+	      SrcPort		      1
+	      DstBlock		      "__UniqueOutportName__2__"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Pump"
+	      SrcPort		      1
+	      DstBlock		      "__UniqueOutportName__1__"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "__OutputSSForSFun__"
+	  Ports			  [6, 6]
+	  Position		  [595, 42, 695, 178]
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "__OutputSSForSFun__"
+	    Location		    [602, 385, 838, 532]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "__UniqueInportName__1__"
+	      Position		      [30, 25, 50, 45]
+	      ShowName		      off
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "__UniqueInportName__2__"
+	      Position		      [30, 40, 50, 60]
+	      ShowName		      off
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "__UniqueInportName__3__"
+	      Position		      [30, 55, 50, 75]
+	      ShowName		      off
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "__UniqueInportName__4__"
+	      Position		      [30, 70, 50, 90]
+	      ShowName		      off
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "__UniqueInportName__5__"
+	      Position		      [30, 85, 50, 105]
+	      ShowName		      off
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "__UniqueInportName__6__"
+	      Position		      [30, 100, 50, 120]
+	      ShowName		      off
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Tank 1"
+	      Position		      [155, 30, 175, 40]
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      PortDimensions	      "1"
+	      SampleTime	      "[-1 0]"
+	      DataType		      "double"
+	      SignalType	      "real"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Tank 2"
+	      Position		      [155, 45, 175, 55]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      PortDimensions	      "1"
+	      SampleTime	      "[-1 0]"
+	      DataType		      "double"
+	      SignalType	      "real"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "q_i"
+	      Position		      [155, 60, 175, 70]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      PortDimensions	      "1"
+	      SampleTime	      "[0 1]"
+	      DataType		      "double"
+	      SignalType	      "real"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "q_o1"
+	      Position		      [155, 75, 175, 85]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      PortDimensions	      "1"
+	      SampleTime	      "[-1 0]"
+	      DataType		      "double"
+	      SignalType	      "real"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "q_t"
+	      Position		      [155, 90, 175, 100]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      PortDimensions	      "1"
+	      SampleTime	      "[-1 0]"
+	      DataType		      "double"
+	      SignalType	      "real"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "q_o2"
+	      Position		      [155, 105, 175, 115]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      PortDimensions	      "1"
+	      SampleTime	      "[-1 0]"
+	      DataType		      "double"
+	      SignalType	      "real"
+	    }
+	    Line {
+	      SrcBlock		      "__UniqueInportName__6__"
+	      SrcPort		      1
+	      DstBlock		      "q_o2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "__UniqueInportName__5__"
+	      SrcPort		      1
+	      DstBlock		      "q_t"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "__UniqueInportName__4__"
+	      SrcPort		      1
+	      DstBlock		      "q_o1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "__UniqueInportName__3__"
+	      SrcPort		      1
+	      DstBlock		      "q_i"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "__UniqueInportName__2__"
+	      SrcPort		      1
+	      DstBlock		      "Tank 2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "__UniqueInportName__1__"
+	      SrcPort		      1
+	      DstBlock		      "Tank 1"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Tank 1"
+	  Position		  [835, 35, 855, 55]
+	  BackgroundColor	  "lightBlue"
+	  NamePlacement		  "alternate"
+	  IconDisplay		  "Port number"
+	  BusOutputAsStruct	  off
+	  PortDimensions	  "1"
+	  SampleTime		  "[-1 0]"
+	  DataType		  "double"
+	  SignalType		  "real"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Tank 2"
+	  Position		  [835, 70, 855, 90]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  BusOutputAsStruct	  off
+	  PortDimensions	  "1"
+	  SampleTime		  "[-1 0]"
+	  DataType		  "double"
+	  SignalType		  "real"
+	}
+	Line {
+	  SrcBlock		  "__OutputSSForSFun__"
+	  SrcPort		  6
+	  Points		  [20, 0; 0, 165]
+	  DstBlock		  "Subsystem"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "__OutputSSForSFun__"
+	  SrcPort		  5
+	  Points		  [30, 0; 0, 155]
+	  DstBlock		  "Subsystem"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "__OutputSSForSFun__"
+	  SrcPort		  4
+	  Points		  [40, 0; 0, 145]
+	  DstBlock		  "Subsystem"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "__OutputSSForSFun__"
+	  SrcPort		  3
+	  Points		  [50, 0; 0, 135]
+	  DstBlock		  "Subsystem"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Subsystem"
+	  SrcPort		  2
+	  DstBlock		  "VR Sink"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Subsystem"
+	  SrcPort		  3
+	  DstBlock		  "VR Sink"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Subsystem"
+	  SrcPort		  4
+	  DstBlock		  "VR Sink"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Subsystem"
+	  SrcPort		  1
+	  DstBlock		  "VR Sink"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Subsystem"
+	  SrcPort		  6
+	  DstBlock		  "VR Sink"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "Subsystem"
+	  SrcPort		  5
+	  DstBlock		  "VR Sink"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "__OutputSSForSFun__"
+	  SrcPort		  2
+	  Points		  [95, 0]
+	  Branch {
+	    Points		    [0, 305]
+	    DstBlock		    "Subsystem"
+	    DstPort		    6
+	  }
+	  Branch {
+	    DstBlock		    "Tank 2"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "__OutputSSForSFun__"
+	  SrcPort		  1
+	  Points		  [80, 0]
+	  Branch {
+	    Points		    [0, -15]
+	    DstBlock		    "Tank 1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 295]
+	    DstBlock		    "Subsystem"
+	    DstPort		    5
+	  }
+	}
+	Line {
+	  SrcBlock		  "COUPLED TANKS\nVR Model_sfcn"
+	  SrcPort		  6
+	  DstBlock		  "__OutputSSForSFun__"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "COUPLED TANKS\nVR Model_sfcn"
+	  SrcPort		  5
+	  DstBlock		  "__OutputSSForSFun__"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "COUPLED TANKS\nVR Model_sfcn"
+	  SrcPort		  4
+	  DstBlock		  "__OutputSSForSFun__"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "COUPLED TANKS\nVR Model_sfcn"
+	  SrcPort		  3
+	  DstBlock		  "__OutputSSForSFun__"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "COUPLED TANKS\nVR Model_sfcn"
+	  SrcPort		  2
+	  DstBlock		  "__OutputSSForSFun__"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "COUPLED TANKS\nVR Model_sfcn"
+	  SrcPort		  1
+	  DstBlock		  "__OutputSSForSFun__"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "__InputSSForSFun__"
+	  SrcPort		  4
+	  DstBlock		  "COUPLED TANKS\nVR Model_sfcn"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "__InputSSForSFun__"
+	  SrcPort		  3
+	  DstBlock		  "COUPLED TANKS\nVR Model_sfcn"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "__InputSSForSFun__"
+	  SrcPort		  2
+	  DstBlock		  "COUPLED TANKS\nVR Model_sfcn"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "__InputSSForSFun__"
+	  SrcPort		  1
+	  DstBlock		  "COUPLED TANKS\nVR Model_sfcn"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Valve Vo2"
+	  SrcPort		  1
+	  DstBlock		  "__InputSSForSFun__"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Valve Vt"
+	  SrcPort		  1
+	  DstBlock		  "__InputSSForSFun__"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Valve Vo1"
+	  SrcPort		  1
+	  DstBlock		  "__InputSSForSFun__"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Pump"
+	  SrcPort		  1
+	  DstBlock		  "__InputSSForSFun__"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux1"
+      Ports		      [2, 1]
+      Position		      [565, 67, 570, 198]
+      ShowName		      off
+      Inputs		      "2"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope \nh1 & h2\n[cm]"
+      Ports		      [1]
+      Position		      [610, 119, 640, 151]
+      Floating		      off
+      Location		      [337, 469, 661, 708]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      TimeRange		      "2000"
+      YMin		      "0"
+      YMax		      "30"
+      SaveToWorkspace	      on
+      SaveName		      "ty"
+      DataFormat	      "Array"
+      MaxDataPoints	      "500000"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope \nu [V]"
+      Ports		      [1]
+      Position		      [290, 14, 320, 46]
+      Floating		      off
+      Location		      [6, 469, 330, 708]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      TimeRange		      "2000"
+      YMin		      "0"
+      YMax		      "12"
+      SaveToWorkspace	      on
+      SaveName		      "tu"
+      DataFormat	      "Array"
+      MaxDataPoints	      "500000"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "Vo1"
+      Position		      [200, 100, 230, 130]
+      Time		      "0"
+      After		      "0"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "Vo2"
+      Position		      [280, 160, 310, 190]
+      Time		      "0"
+      After		      "0.60"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "Vt"
+      Position		      [240, 130, 270, 160]
+      Time		      "0"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "u"
+      Position		      [35, 70, 65, 100]
+      Time		      "1000"
+      Before		      "5"
+      After		      "5*1.05"
+      SampleTime	      "0"
+    }
+    Line {
+      Labels		      [0, 0]
+      SrcBlock		      "COUPLED TANKS\nVR Model"
+      SrcPort		      1
+      DstBlock		      "Mux1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Mux1"
+      SrcPort		      1
+      DstBlock		      "Scope \nh1 & h2\n[cm]"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Vo1"
+      SrcPort		      1
+      DstBlock		      "COUPLED TANKS\nVR Model"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Vt"
+      SrcPort		      1
+      DstBlock		      "COUPLED TANKS\nVR Model"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Vo2"
+      SrcPort		      1
+      DstBlock		      "COUPLED TANKS\nVR Model"
+      DstPort		      4
+    }
+    Line {
+      Labels		      [0, 0]
+      SrcBlock		      "u"
+      SrcPort		      1
+      Points		      [185, 0]
+      Branch {
+	Points			[0, -55]
+	DstBlock		"Scope \nu [V]"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"COUPLED TANKS\nVR Model"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "COUPLED TANKS\nVR Model"
+      SrcPort		      2
+      DstBlock		      "Mux1"
+      DstPort		      2
+    }
+    Annotation {
+      Name		      "Coupled Tanks (CT)"
+      Position		      [441, 34]
+      ForegroundColor	      "blue"
+      UseDisplayTextAsClickCallback off
+      FontName		      "Times New Roman"
+      FontSize		      20
+      FontWeight	      "bold"
+      FontAngle		      "italic"
+    }
+    Annotation {
+      Name		      "__"
+      Position		      [547, 85]
+      ForegroundColor	      "yellow"
+      UseDisplayTextAsClickCallback off
+      FontWeight	      "bold"
+    }
+    Annotation {
+      Name		      "__"
+      Position		      [547, 150]
+      ForegroundColor	      "magenta"
+      UseDisplayTextAsClickCallback off
+    }
+  }
+}
