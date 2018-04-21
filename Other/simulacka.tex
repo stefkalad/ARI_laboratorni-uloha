@@ -1,0 +1,278 @@
+%\documentclass[onecolumn]{IEEEtranTIE}
+\documentclass[journal]{IEEEtranTIE}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{picinpar}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{flushend}
+%\usepackage[latin1]{inputenc}
+\usepackage{colortbl}
+\usepackage{soul}
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{color}
+\usepackage{alltt}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumerate}
+\usepackage{siunitx}
+\usepackage{breakurl}
+\usepackage{epstopdf}
+\usepackage{pbox}
+\usepackage{float}
+
+\usepackage{amsmath}
+\DeclareMathOperator{\sgn}{sgn}
+\interdisplaylinepenalty=2500
+
+% nastavení pisma a èeštiny
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[cp1250]{inputenc}
+\usepackage[czech]{babel}	
+
+\begin{document}
+\title{	Simulaèní úloha - odstøedivá vodárna \\ (Bøezen 2018)}
+
+\author{
+	\vskip 1em
+	{
+	Pavel Souèek - Student FEL
+	}
+
+
+	}
+
+
+\maketitle
+	
+%\begin{abstract}
+%Simulaèní úloha Ari
+%\end{abstract}
+
+%\begin{IEEEkeywords}
+%ARI, øízení
+%\end{IEEEkeywords}
+
+\markboth{Ari - Simulaèní úloha}%
+{}
+
+\definecolor{limegreen}{rgb}{0.2, 0.8, 0.2}
+\definecolor{forestgreen}{rgb}{0.13, 0.55, 0.13}
+\definecolor{greenhtml}{rgb}{0.0, 0.5, 0.0}
+
+\section{Stavové rovnice}
+\IEEEPARstart{M}{ìjme} zadané diferenciální rovnice. Upravíme je do tvaru, abychom mohli vytvoøit stavový popis a maximálnì slouèíme promìnné, abychom je mohli vyjádøit.
+\begin{equation}
+\begin{aligned}
+S \dot{h_1}(t) =S_u sgn[k_c(u(t)-u_n)^2-\rho g(h_1(t)+h_{1off})]  \\ \cdot  \sqrt{\frac{2}{\rho}|k_c(u(t)-u_n)^2-\rho g(h_1(t)+h_{1off})|} \\
+-v_t S_t sign(h_1(t)-h_2(t)) \sqrt{2g|h_1(t)-h_2(t)|}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+S \dot{h_2}(t) =v_t S_t sign(h_1(t)-h_2(t)) \sqrt{2g|h_1(t)-h_2(t)|}\\ 
+-v_o S_o \sqrt{2g(h_2(t)+h_{2off})}
+\end{aligned}
+\end{equation}
+Zavedeme substituci $k_c=k g \rho$ a rovnice upravíme:
+\begin{equation}
+\begin{aligned}
+\dot{h_1}(t) =\frac{S_u}{S}  sgn[\rho g(k(u(t)-u_n)^2-(h_1(t)+h_{1off}))]  \\ \cdot  \sqrt{\frac{2g \rho}{\rho}|k(u(t)-u_n)^2-(h_1(t)+h_{1off})|} \\
+-v_t \frac{S_t}{S}  sign(h_1(t)-h_2(t)) \sqrt{2g|h_1(t)-h_2(t)|}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\dot{h_2}(t) =v_0\frac{S_t}{S}	  sign(h_1(t)-h_2(t)) \sqrt{2g|h_1(t)-h_2(t)|}\\ 
+-v_o \frac{S_o}{S}	 \sqrt{2g(h_2(t)+h_{2off})}
+\end{aligned}
+\end{equation}
+Po další úpravì:
+\begin{equation}
+\begin{aligned}
+\dot{h_1}(t) =\sqrt{2g}\frac{S_u}{S}  sgn[k(u(t)-u_n)^2-(h_1(t)+h_{1off})]  \\ \cdot  \sqrt{|k(u(t)-u_n)^2-(h_1(t)+h_{1off})|} \\
+-v_t \sqrt{2g}\frac{S_t}{S}   sign(h_1(t)-h_2(t)) \sqrt{|h_1(t)-h_2(t)|}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\dot{h_2}(t) = v_t \sqrt{2g}\frac{S_t}{S}	  sign(h_1(t)-h_2(t)) \sqrt{|h_1(t)-h_2(t)|}\\ 
+-v_o \sqrt{2g}\frac{S_o}{S}	 \sqrt{(h_2(t)+h_{2off})}
+\end{aligned}
+\end{equation}
+Nyní zavedeme substituci:
+\begin{equation}
+a= \sqrt{2g}\frac{S_u}{S}, b=\sqrt{2g}\frac{S_t}{S}, c =\sqrt{2g}\frac{S_o}{S}	
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\dot{h_1}(t) =a  sgn[k(u(t)-u_n)^2-(h_1(t)+h_{1off})]  \\ \cdot  \sqrt{|k(u(t)-u_n)^2-(h_1(t)+h_{1off})|} \\
+-v_t b   sign(h_1(t)-h_2(t)) \sqrt{|h_1(t)-h_2(t)|}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\dot{h_2}(t) = v_t b sign(h_1(t)-h_2(t)) \sqrt{|h_1(t)-h_2(t)|}\\ 
+-v_o c	 \sqrt{(h_2(t)+h_{2off})}
+\end{aligned}
+\end{equation}
+
+\section{Obecná linearizace}
+Mìjme linearizovaný model jehož stavový popis je:
+\begin{equation}
+\begin{aligned}
+\dot{x} = Ax+Bu	\\
+y = Cx+Du	\\
+\end{aligned}
+\end{equation}
+\begin{equation}
+A=\begin{bmatrix}
+\frac{df_1}{dh_1}& \frac{df_1}{dh_2} \\
+\frac{df_2}{dh_1}& \frac{df_2}{dh_2} \\
+\end{bmatrix}_{|_{P_0}}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\frac{df_1}{dh_1}= - 2 a \sqrt{|h_{1off} + x_1 - k*(u - u_n)^2|} \\ 
+*\delta(h_{1off} + x_1 - k (u - u_n)^2) \\
+ - \frac{a*sign(h_{1off} + x_1 - k (u - un)^2)^2}{2 \sqrt{|h_{1off} + x_1 - k (u - u_n)^2)|}}\\ 
+  - 2b v_t \sqrt{|x1 - x2|}  *\delta(x_1 - x_2) \\
+ - \frac{b v_t (sign(x_1 - x_2))^2}{2 \sqrt{|x_1 - x_2|}}\\
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}	
+\frac{df_1}{dh_2}= 2 b v_t \sqrt{|x_1 - x_2|} 
+ \delta(x_1 - x_2)   \\
++\frac{b v_t (sign(x_1 - x_2))^2}{\sqrt{2|x_1 - x_2|}}
+\end{aligned}	
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\frac{df_2}{dh_1}= 2 b v_t \sqrt{|x_1 - x_2|} \delta(x_1 - x_2) \\
++ \frac{b v_t (sign(x_1 - x_2))^2}{2 \sqrt{|x_1 - x_2|}}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\frac{df_2}{dh_2}=  - (c v_o)/(2 \sqrt{h_{2off} + x_2}) \\
+- 2 b v_t \sqrt{|x_1 - x_2|} \delta(x_1 - x_2)\\
+ - \frac{b v_t (sign(x_1 - x_2))^2}{2\sqrt{|x_1 - x_2|}}
+\end{aligned}
+\end{equation}
+\begin{equation}
+B=\begin{bmatrix}
+\frac{df_1}{du}& \frac{df_1}{dv_t}& \frac{df_1}{dv_o} \\
+\frac{df_2}{du}& \frac{df_2}{dv_t}& \frac{df_2}{dv_o} \\
+\end{bmatrix}_{|_{P_0}}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\frac{df_1}{du}=2 k u \sqrt{|h1off + x_1 - k (u - un)^2|} \\
+ \cdot \delta (h_{1off} + x_1 - k (u - u_n)^2) (2 u - 2 u_n)\\
+  + \frac{k a sign(h1off + x_1 - k (u - u_n)^2)^2 (2 u - 2 u_n)}{2 \sqrt{|h_{1off} + x_1 - k (u - un)^2|}}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\frac{df_1}{dv_t}=-b \sqrt{|x_1 - x_2|} sign(x_1 - x_2)               
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\frac{df_1}{dv_o}=0
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\frac{df_2}{du}=0
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+ \frac{df_2}{dv_t}=b \sqrt{|x_1 - x_2|} sign(x_1 - x_2)
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+ \frac{df_2}{dv_o}=-c \sqrt{h_{2off} + x_2}
+\end{aligned}
+\end{equation}
+
+Matice $C$ je vytvoøíme podle toho, kterou hladinu bude považovat za výstupní. Pokud za výstup považujeme $h_1$, pak $C = \begin{bmatrix} 1 & 0 \end{bmatrix}$, pokud za výstup považujeme $h_1$, pak $C = \begin{bmatrix} 0 & 1 \end{bmatrix}$.Matice $D =   \begin{bmatrix} 0 & 0 & 0  \end{bmatrix}$
+ 
+\section{Identifikace nelinearit}
+Pomocí rampových vstupních signálù byli zmìøeny  signálù. Pøi zkoumání tìchto hodnot pro vstupy byl pozorován prùbìh derivace. Pøi pøechodu do(z) pásma necitlivosti(saturace) dojde ke skokové zmìnì derivace výstupu zpùsobené vynulováním(vznikem)  èlenu $ \frac{dh}{du} $, ke h je hladina (mìøený výstup systému) a u je vstup systému s rampovým signálem.  Omezení hladin bylo zmìøeno zvolením vhodných vstupù a pozorováním výstupu.
+
+Vstupy ventilù jsou omezeny do hodnot [0,1] a vstup èerpadla je omezen na množinu [1,11]. Hladina $h_1$ je omezena na interval [-0.053582,0.65034637] a $h_2$ na interval [0,0.65034637]
+\section{Zjištìní zbylých velièin}
+Všechny konstanty byly zmìøeny pomocí vhodných experimentù:
+Konstanta $u_n = 1$ byla zjištìna stejným experimentem, jako pásmo necitlivosti èerpadla.
+
+Konstanty $h_{1off} = 0.053582$ a $h_{2off} = -0.000007847$ byli zjištìny pomocí vstupù $u(t) = 0, v_t(t) = 0, v_o(t) = 1\cdot 1(t) $ za poèáteèních podmínek $h_{1}(0) = 0.5$ a $h_{2}(0) = 0.5$, jakožto ustálené hodnoty.  Konstanta $h_{2off}$ je pravdìpodobnì výpoèetní nepøesnost modelu její pravá hodnota je ve zkuteènosti 0. Každopádnì je toto pro výslednou pøesnost modelu zanedbatelné.
+
+Konstanta $k = 0.00910412 $ byla urèena pomocí ustálené odezvy hladiny $h_1$ na vstupy $u(t) = 6\cdot 1(t), v_t(t) = 0, v_o(t) = 0 $
+
+Konstanta $a = 0.62753$ byla zjištìna mìøením nábìhu hladiny $h_1$ jakožto odezvy na vstup $u(t) = 8 \cdot 1(t), v_t(t) = 0, v_o(t) = 0 $
+
+Konstanta $b = 0.135994$ byla zjištìna mìøením nábìhu hladiny $h_2$ jakožto odezvy  na vstup $u(t) = 8 \cdot 1(t), v_t(t) = 0.5 \cdot  1(t-10), v_o(t) = 0 $
+
+Konstanta $c = 0.18361707 $ byla urèena pomocí ustálené odezvy hladiny $h_1$ na vstupy $u(t) = 6\cdot 1(t), v_t(t) = 0.5\cdot 1(t), v_o(t) =  0.5\cdot 1(t) $
+
+
+\section{Vytvoøení systému linearizovaného a nezlinearizovaného}
+Nelinearivaný systém byl realizován pomocí dosazení hodnot do pùvodních rovnic a následným naplnìním formálních požadavkù pro blok simulinku "Interpreted MATLAB Function". Tyto funkce následnì byly doplnìny integrátory. Jak na vstup na i na výstupní integrátory byli dodány omezení hodnot na již zmínìné intervaly. 
+
+Dle již zmínìných rovnic byl vytvoøen pomocí programu Matlab matice stavového popisu:
+\begin{verbatim}
+As=jacobian([eq1,eq2],[x1,x2])
+Bs=jacobian([eq1,eq2],[u,vt,v_o])
+\end{verbatim}
+Následnou následnì byly matice substituovány konstantami a hodnotami pracovního bodu $u_{0} = 7, v_{t0} = 0.5, v_{o0} =  0.5,h_{10} = 0.2727,h_{20} =  0.09674 $. Poèáteèní podmínky linearizovaného systému byly upraveny, aby bylo dodrženo, že $h_1(0)=0$ a $h_2(0)=0$ 
+
+
+
+\section{Porovnání odezvy obou nových systémù se systémem pùvodním}
+Prvním testovacím vstupem je vstup testující rozdíl od pùvodního systému pro vstupy ventilù $v_o(t)$,$v_t(t)$ vychýlené z pracovního bodu. Pro tento pøípad byl zvolen vstup:
+$u(t) = 7, v_t(t) = (0.5+0.5\cdot sin(3 \cdot t))\cdot 1(t), v_o(t) =  (0.5+0.5\cdot sin(3 \cdot t))\cdot 1(t) $
+\begin{figure}[H]\centering
+	\includegraphics[width=8.5cm]{fig/h1_0sin_05sin.eps}
+	\caption{Odezva systémù  hladiny $h_1$ na vstup: $u(t) = 7, v_t(t) = (0.5+0.5\cdot sin(3t))\cdot 1(t), v_o(t) =  (0.5+0.5\cdot sin(t))\cdot 1(t) $}\label{FIG_1}\end{figure}
+\begin{figure}[H]\centering
+	\includegraphics[width=8.5cm]{fig/h2_0sin_05sin.eps}
+	\caption{Odezva systémù  hladiny $h_2$ na vstup: $u(t) = 7, v_t(t) = (0.5+0.5\cdot sin(3t))\cdot 1(t), v_o(t) =  (0.5+0.5\cdot sin(t))\cdot 1(t) $}\label{FIG_1}
+\end{figure}
+Po ustálení (v poèátku se vstup u nachází mimo pracovní bod) se linearizovaný model chová velmi podobnì jako model linearizovaný.
+\begin{figure}[H]\centering
+	\includegraphics[width=8.5cm]{fig/h1_2sin_04sin.eps}
+	\caption{Odezva systémù hladiny $h_1$ na vstup: $u(t) = (7+2\cdot sin(2t))\cdot 1(t), v_t(t) = (0.5+0.4\cdot sin(3t))\cdot 1(t), v_o(t) =  (0.5+0.4\cdot sin(t))\cdot 1(t) $}
+\end{figure}
+\begin{figure}[H]\centering
+	\includegraphics[width=8.5cm]{fig/h2_2sin_04sin.eps}
+	\caption{Odezva systémù hladiny $h_2$ na vstup: $u(t) = (7+2\cdot sin(2t))\cdot 1(t), v_t(t) = (0.5+0.5\cdot sin(3t))\cdot 1(t), v_o(t) =  (0.5+0.5\cdot sin(t))\cdot 1(t) $}\label{FIG_1}
+\end{figure}
+Pro vzdálenost 2 od pracovního bodu vstupu $u$ èerpadla dochází již k výrazným odchylkám v hladinì první nádrže. 
+\begin{figure}[H]\centering
+	\includegraphics[width=8.5cm]{fig/h1_4sin_05sin.eps}
+	\caption{Odezva systémù  hladiny $h_1$ na vstup: $u(t) = (7+4\cdot sin(2t))\cdot 	1(t), v_t(t) = (0.5+0.5\cdot sin(3t))\cdot 1(t), v_o(t) =  (0.5+0.5\cdot sin(t))\cdot 	1(t) $}
+\label{FIG_1}
+\end{figure}
+\begin{figure}[H]\centering
+	\includegraphics[width=8.5cm]{fig/h2_4sin_05sin.eps}
+	\caption{Odezva systémù  hladiny $h_2$ na vstup: $u(t) = (7+4\cdot sin(2t))\cdot 1(t), v_t(t) = (0.5+0.5\cdot sin(3t))\cdot 1(t), v_o(t) =  (0.5+0.5\cdot sin(t))\cdot 1(t) $}\label{FIG_1}
+\end{figure}
+Pro zvìtšovaní okolí pracovního bodu pro vstup $u$ èerpadla se zvyšuje rozdíl od pùvodního modelu. Nelineární model se témìø dokonale shoduje s modelem pùvodním
+
+ 
+\section{Závìr}
+Z grafù je zøejmé, že kvalita lineariozavaného modelu je závislá na velikosti okolí velikosti okolí pracovního bodu vstupu èerpadla,což je zpùsobeno kvadrátem napìtí v rovnicích. Pro vstupy ventilù ($v_t,v_o$) je možné využívat plný rozsah vstupních signálù [0,1].
+
+Model nelineární se témìø dokonale shoduje s modelem pùvodním.
+
+
+
+
+
+
+\end{document}
