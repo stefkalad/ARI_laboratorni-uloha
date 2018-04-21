@@ -32,7 +32,7 @@ hold on
 %plot(time(1:end-1),  c)
 t= linspace(7,64, 467)
 plot(t, h2_nolinear2(:,2))
-title ("Identifikace parametru c");
+title ('Identifikace parametru c');
 xlabel('Time t[s]','FontSize',12);
 ylabel('h2 [m]','FontSize',12);
 legend({'h2\_orig(t)', 'h2\_sim(t)'},'Location','best');
