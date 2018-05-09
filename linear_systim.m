@@ -1,17 +1,17 @@
 clear all; close all; clc;
 %% Calculate state space matrixes
-a = 0.075;
+a = 0.078;
 c = 0.02;
 b = 0.013;
 d = 2.2;
 
 h2off = 0;
-h1off = 0.01;
+h1off = 0.04;
 uN = 0.05;
-
-u0 = 0.45;
-h10 = 0.23;
-h20 = 0.14;
+5
+u0 = 0.4;
+h10 = 0.17;
+h20 = 0.05;
 vT = 1;
 vO = 1;
 
@@ -21,7 +21,7 @@ dh1dh2 = vT*b*( 1/(2*sqrt(h10-h20)) )
 dh2dh1 = vT*c*( 1/(2*sqrt(h10-h20)) )
 dh2dh2 = -vT*c*( 1/(2*sqrt( h10 - h20 )) ) - vO*b*(1/(2*sqrt(h20)))
 
-dh1du = a*( ( d*(u0 - uN) )/(( sqrt(d*(u0-uN)^2 - ( h10 - h1off ) ) ) ) )
+dh1du  = a*( ( d*(u0 - uN) )/(( sqrt(d*(u0-uN)^2 - ( h10 - h1off ) ) ) ) )
 dh1dvt = -c*sqrt(h10 - h20)
 dh1dvo = 0;
 
