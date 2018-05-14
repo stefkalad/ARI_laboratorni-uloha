@@ -1,14 +1,18 @@
 clear all; close all; clc;
 
+
 %% Calculate state space matrixes
 % A= [-1.08 0.022; 0.022 -0.051]
 % B= [0.848 -0.0057 0; 0 0.0057 -0.0058];
 % C= [0 0; 0 1]
 
-a = 0.075;
-c = 0.02;
-b = 0.013;
-d = 2.4;
+a_con = 0.075;
+c_con = 0.02;
+b_con = 0.013;
+d_con = 2.4;
+
+a= a_con; b= b_con;
+c= c_con; d= d_con;
 
 h2off = 0;
 h1off = 0.045;
@@ -62,11 +66,14 @@ d = 0;
 Hol = tf(ss(A,B(:,1),C(2,:),0))
 [b,a] = ss2tf(A,B(:,1),C(2,:),0)
 
-[At, Bt, Ct, Dt] = tf2ss(b,a)
+%[At, Bt, Ct, Dt] = tf2ss(b,a)
 
-An = [At zeros(2,1); -Ct 0]
-Bn = [Bt; 0]
-Cn = [Ct 0]
+%An = [At zeros(2,1); -Ct 0]
+%Bn = [Bt; 0]
+%Cn = [Ct 0]
+An = [A zeros(2,1); -C(2,:) 0]
+Bn = [B(:,1); 0]
+Cn = [C(2,:) 0]
 
 Cr = [Bn An*Bn An*An*Bn]
 
@@ -84,15 +91,25 @@ omegad = 0.5
 abs_H_dB = -35.7
 abs_H = 10^(abs_H_dB/20)
 
-Kp = 1/(sqrt(2)*abs_H)
-Kd = 1/(omegad*sqrt(2)*abs_H)
+kp_PD = 1/(sqrt(2)*abs_H)
+kd_PD = 1/(omegad*sqrt(2)*abs_H)
 
-%%PID
+load("WERKSPEJS_REGULATORS/pd_test")
+h2_real=[ty(:,1) ty(:,4)];
+
+%% PID regulator
 [Ku, Fk, wu, wf] = margin(H)
 Tu = 2*pi/wu
-kp = 0.6*Ku
-ki = Tu/2
-kd = Tu / 8
+kp_PID = 0.6*Ku
+ki_PID = Tu/2
+kd_PID = Tu / 8
+
+%% PI regulator
+%kp_PI = 4.4816;
+%ki_PI = 0.2801
+%konstanty odladene
+kp_PI=2.6
+ki_PI=0.3
 
 
 
