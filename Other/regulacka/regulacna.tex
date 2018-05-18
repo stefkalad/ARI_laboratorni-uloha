@@ -1,0 +1,330 @@
+\documentclass[journal]{IEEEtran}
+
+%\usepackage[a4paper]{geometry}
+%\geometry{verbose,tmargin=2.5cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+
+%\usepackage{lmodern}
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[slovak]{babel}	
+
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{graphicx} 
+\usepackage{epstopdf}
+
+% MOJE BLBOSTI
+\usepackage[normalem]{ulem}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage[labelformat=empty]{caption}
+\usepackage{float}
+\setcounter{MaxMatrixCols}{50}
+%\renewcommand{\arraystretch}{1.5}
+
+\usepackage[unicode=true, bookmarks=true,bookmarksnumbered=true,
+bookmarksopen=false, breaklinks=false,pdfborder={0 0 0},
+pdfpagemode=UseNone,backref=false,colorlinks=true] {hyperref}
+\usepackage{xkeyval}	
+\usepackage[textsize = footnotesize]{todonotes}
+
+
+
+\begin{document}
+	\author{{\large Lukáš Bielesch, Jozef Dujava}}
+\title{{\Large ARI - Laboratórna úloha (regulačná časť)} \\[10pt]
+	   \huge\uppercase{vodáreŇ V4}}
+
+% make the title area
+\maketitle
+\section{Úvod}
+
+\section{Regulácia stavovou spätnou väzbou}
+	\begin{align}
+	% A MATRIX
+	\bm{A} &= 
+	{\begin{bmatrix} 
+-0.101 & 0.042\\ 0.042 & -0.0997
+		\end{bmatrix}},
+	\nonumber \\[10pt] 
+	% B MATRIX
+	\bm{B} &= 
+	{\begin{bmatrix} 
+	0.141 & -0.0039 & 0\\ 0 & 0.0039 & -0.025
+		\end{bmatrix}},
+	\nonumber \\[10pt]
+	\bm{C} &= \begin{bmatrix} 1 & 0\\ 0 & 1
+	 \end{bmatrix},
+	\quad
+	\bm{D} = \begin{bmatrix} 0 & 0 & 0\\ 0 & 0 & 0 \end{bmatrix}.
+	\end{align}
+	
+	
+		
+	\begin{align}
+	% A_p MATRIX
+	\bm{A_p} &= 
+	{\begin{bmatrix} 
+-0.101 & 0.042\\ 0.042 & -0.0997
+		\end{bmatrix}},
+	\nonumber 
+	% B_p MATRIX
+	\quad\bm{B_p} = 
+	{\begin{bmatrix} 
+	0.141\\ 0 
+		\end{bmatrix}},
+	\nonumber \\[10pt]
+	\bm{C_p} &= \begin{bmatrix} 0 & 1
+	\end{bmatrix},
+	\quad
+	\bm{D_p} = \begin{bmatrix} 0 \end{bmatrix}.
+	\end{align}
+
+Aby sme pri stavovej spätnej väzbe zaistili jednotkové zosílenie, tak pridáme integrátor regulačnej odchýlky. Rovnice OL budú mať tvar:
+	\begin{align}
+	\begin{bmatrix}
+	\bm{\dot{x}}\\\dot{x}_i
+	\end{bmatrix}&=\begin{bmatrix}
+	\bm{A} & \bm{0}\\ -\bm{C} & 0 
+	\end{bmatrix}
+	\begin{bmatrix}
+	\bm{x}\\x_i
+	\end{bmatrix}+\begin{bmatrix}
+	\bm{B}\\0
+	\end{bmatrix}u+\begin{bmatrix}
+	0 & 1
+	\end{bmatrix}r\nonumber\\
+	y&=\begin{bmatrix}
+	\bm{C} & 0
+	\end{bmatrix}\begin{bmatrix}
+	\bm{x}\\x_i
+	\end{bmatrix}
+	\end{align}
+	\begin{align}
+		\bm{A_{new}}&=\begin{bmatrix}
+		\bm{A_p} & \bm{0}\\
+		\bm{-C_p} & 0
+		\end{bmatrix}=\begin{bmatrix}
+		-0.101 & 0.042 & 0\\ 0.042 & -0.0997 & 0\\ 0 & -1.0 & 0
+		\end{bmatrix}\\
+		\bm{B_{new}}&=\begin{bmatrix}
+		\bm{B_p}\\
+		\bm{0}
+		\end{bmatrix}=\begin{bmatrix}
+		0.141\\ 0\\ 0
+		\end{bmatrix}\\
+		\bm{C_{new}}&=\begin{bmatrix}
+		\bm{C_p} & \bm{0}
+		\end{bmatrix}=\begin{bmatrix}
+		0 & 1.0 & 0
+		\end{bmatrix}\\
+		D_{new}&=\begin{bmatrix}
+		0
+		\end{bmatrix}
+	\end{align}
+
+
+Teraz budeme umiestňovať korene CL.\\
+Zo zadaného prekmitu na jednotkový skok $\%OS = 20\%$ môžeme vypočítať dektrement útlmu $\zeta$
+\begin{equation}\label{eq:1}
+	\zeta=\frac{-\mathrm{ln}(\%\mathrm{OS}/100)}{\sqrt{\pi^2+\mathrm{ln}^2(\%\mathrm{OS}/100)}}
+\end{equation}
+\begin{equation}
+	\zeta=0.4559
+\end{equation} 
+Pre prirodzenú frekvenciu $\omega_n $ platí vzťah:
+\begin{equation}
+	\omega_n=\frac{4}{\zeta T_s}
+\end{equation}
+
+Dobu ustálenia $T_S$ sme odhadli na $T_S=40\,s$.
+\begin{equation}
+	\omega_n=0.2193
+\end{equation}
+
+Aby sme dodržali stanovené parametre, musíme dva korene charakteristického polynómu CL umiestniť do:
+\begin{equation}
+	s_{12}=p_{{CL}_{12}}=-\zeta\omega \pm j\omega_n\sqrt{1-\zeta^2}\\
+\end{equation}
+\begin{equation}
+s_{12}=p_{{CL}_{12}}=-0.1\pm 0.195i 
+\end{equation}
+Keďže sa jedná o integrálne riadenie, tak po pridaní integrátora vznikol systém 3. rádu. Do charakteristického polynómu CL musíme ďalší koreň, ale keďže už nemáme nuly, ktoré by sme mohli vykrátiť alebo iné požiadavky, ktoré musíme splniť, tak pridáme koreň v stabilnej oblasti, ktorý nebude príliš vzdialený od pólov OL.
+\begin{equation}
+	p_{{CL}_{3}}=- 1
+\end{equation}
+Výsledný charakteristický polynóm CL je:
+\begin{equation}
+	a_{CL}(s)=(s+1)(s^2+0.2s+0.004578)
+\end{equation}
+\begin{equation}
+a_{CL}(s)=s^3+1.200s^2+0.2481s+0.0481
+\end{equation}
+Teraz budeme počítať jednotlivé zložky stavového vektora $K$.
+Pre výpočet použijeme Ackermannov vzorec definovaný ako:
+\begin{equation}
+	K=[0\quad0\quad 0\quad \cdots \quad  1]\textsf{\textsl{{C}}}_{con}^{-1}a_{CL}(A_{new}),
+\end{equation}
+
+
+kde $\textsf{\textsl{{C}}}_{con}$ je matica riaditeľnosti sústavy a $a_{CL}(A_{new})$ je charakteristický polynóm CL s dosadenou hodnotou $A_{new}$.\\
+Matica $\textsf{\textsl{{C}}}_{con}$ je definovaná, ako:
+\begin{equation}
+\textsf{\textsl{{C}}}_{con} = [B_{new} \quad A_{new}B_{new} \quad A_{new}^2B_{new}]
+\end{equation}
+\begin{equation}
+\textsf{\textsl{{C}}}_{con}=\begin{bmatrix}
+0.141 & -0.0143 & 0.0017\\ 0 & 0.00592 & -0.00119\\ 0 & 0 & -0.00592 
+\end{bmatrix}
+\end{equation}
+a $a_{CL}(A_{new})$ je v našom prípade:
+\begin{equation}
+a_{CL}(A_{new})=A_{new}^3+1.2A_{new}^2+0.2481A_{new}+0.0481
+\end{equation}
+
+Výsledný vektor K:
+\begin{equation}
+K=[k_1\quad k_2\quad k_i]=[0\quad0\quad 1]\textsf{\textsl{{C}}}_{con}^{-1}a_{CL}(A_{new})
+\end{equation}
+\begin{equation}
+K=[7.0851 \quad   23.6688\quad   -8.1226]
+\end{equation}
+
+
+\section{Regulátory}
+\subsection{PD regulátor}
+Prenos PD regulátora je:
+\begin{equation}
+	C(s)=k_p + k_ds=k_d\left(s+\frac{k_p}{k_d}\right)=k_d(s+\omega_d)
+\end{equation}
+Prenos otvorenej smyčky je:
+\begin{equation}
+L(s)=G(s)C(s)
+\end{equation}
+Zlomovú frekvenciu PD regulátora $\omega_d$ zvolíme tak, aby sa zhodovala s frekvenciou $\omega_{PM}$, na ktorej budeme budeme merať fázovú bezpečnosť systému. Zo zadaného prekmitu vypočítame fázovú bezpečnosť:
+\begin{equation} \label{eq:2}
+PM=\mathrm{arctan}\frac{2\zeta}{\sqrt{-2\zeta^2+\sqrt{1+4\zeta^4}}}
+\end{equation}
+\begin{equation}
+PM=48.15^\circ
+\end{equation}
+Frekvenciu $\omega_d$ by sme mohli získať z Bodeho grafu otvorenej smyčky L, ako
+\begin{equation}
+-180^\circ+PM=arg(L(j \omega_d))
+\end{equation}
+K dispozícii máme ale Bodeho graf prenosu $G$. V otvorenej smyčke $L$ na frekvencii $\omega_d$ zvýši PD regulátor fázu o $45^\circ$.
+\begin{align}
+arg(L(j\omega_d))&=arg(C(j\omega_d))+arg(G(j\omega_d))\nonumber\\
+&=45^\circ+arg(G(j\omega_d))
+\end{align}
+ Preto $\omega_d$ získame z Bodeho grafu prenosu G, ako
+\begin{equation}
+\mathrm{arg}(G(j\omega_d))=-180^\circ + PM -45^\circ
+\end{equation} 
+\begin{equation}
+\mathrm{arg}(G(j\omega_d))=-176,856^\circ
+\end{equation} 
+\begin{equation}
+\omega_d = 0.505\, rad
+\end{equation} 
+Ďalej musí platiť, že na frekvencii, s fázovou bezpečnosťou musí byť jednotkové zosílenie otvorenej smyčky L.
+\begin{align}
+|L(j\omega_d)|=|C(j\omega_d)||G(j\omega_d)|\nonumber=k_d\omega_d\sqrt{2}|P(j\omega_d)|=1
+\end{align} 
+\begin{equation}
+k_d=\frac{1}{\omega_d\sqrt{2}|P(j\omega_d)|}
+\end{equation}
+Zosílenie $|P(j\omega_d)|$ je
+\begin{equation}
+ |P(j\omega_d)|_{dB}=-39.95\,dB \rightarrow |P(j\omega_d)|=0.0225 
+\end{equation}
+\begin{equation}
+k_d=
+\end{equation}
+\begin{equation}
+k_p=\frac{1}{\sqrt{2}|P(j\omega_d)|}
+\end{equation}
+\begin{equation}
+k_p=
+\end{equation}
+
+
+\subsection{PI regulátor}
+Prenos PD regulátora je:
+\begin{equation}
+C(s)=\frac{k_ps +k_i}{s}=k_p\frac{s+\frac{k_i}{k_p}}{s}=k_p\frac{s+\omega_i}{s}
+\end{equation}
+
+Metódou Root Locus budeme hľadať korene prenosu uzavretej smyčky.
+Po zadaní zadaní príkazu $\mathit{rltool(G)}$ 
+sa nám otvorí Root Locus Editor. Pomerné tlmenie nastavíme na hodnotu $\zeta=0.4559$, ktorú sme vypočítali v rovnici \ref{eq:1} 
+Následne pridáme integrátor a reálnu nulu:
+Reálnu nulu umiestnime medzi prvý a druhý pól zľava a následne upravujeme jej polohu a zosílenie tak, aby reálne časti pólov mali čo najväčšiu veľkosť, aby ležali na jednej vertikálnej priamke a aby platil pomerný útlm $\zeta=0.4559$.
+Následne si zobrazíme maticu C a z nej odčítame konštanty.
+\begin{equation}
+k_p=3.69\quad k_i=0.065
+\end{equation}
+
+\subsection{PID regulátor}
+Prenos PID regulátora je:
+\begin{align}
+C(s)&=k_p +\frac{k_i}{s}+ k_ds=\frac{k_d}{s}\left(s^2+\frac{k_p}{k_d}s+\frac{k_i}{k_d}\right)\\&=\frac{k_d}{s}(s+\omega_i)(s+\omega_d)
+\end{align}
+
+Zlomovú frekvenciu derivačnej zložky regulátora $\omega_d$ zvolíme tak, aby sa zhodovala s frekvenciou $\omega_{PM}$, na ktorej budeme budeme merať fázovú bezpečnosť systému. Zlomovú frekvenciu integračnej zložky $\omega_i$ zvolíme tak,aby sa jej vplyv na frekvenciu $\omega_{PM}$ takmer neprejavil. 
+\begin{equation}
+\omega_{i}=0.1\omega_{d}
+\end{equation}
+Fázovú bezpečnosť sme vypočítali v rovnici \ref{eq:2}.
+\begin{equation}
+PM=48.15^\circ
+\end{equation}
+Frekvenciu $\omega_d$ by sme mohli získať z Bodeho grafu otvorenej smyčky L, ako
+\begin{equation}
+-180^\circ+PM=arg(L(j \omega_d))
+\end{equation}
+K dispozícii máme ale Bodeho graf prenosu $G$. V otvorenej smyčke $L$ na frekvencii $\omega_d$ zvýši derivačná zložka fázu o $45^\circ$ a integračná zložka zníži fázu o $5.7^\circ$.
+\begin{align}
+arg(L(j\omega_d))&=arg(C(j\omega_d))+arg(G(j\omega_d))\nonumber\\
+&=arg(G(j\omega_d))+45^\circ-5.7^\circ
+\end{align}
+Preto $\omega_d$ získame z Bodeho grafu prenosu G, ako
+\begin{equation}
+\mathrm{arg}(G(j\omega_d))=-180^\circ + PM -45^\circ +5.7^\circ
+\end{equation} 
+\begin{equation}
+\mathrm{arg}(G(j\omega_d))=-176.856^\circ
+\end{equation} 
+\begin{equation}
+\omega_d = 0.432\, rad
+\end{equation} 
+\begin{equation}
+\omega_i =0.1\omega_d= 0.0432\, rad
+\end{equation} 
+Ďalej musí platiť, že na frekvencii, s fázovou bezpečnosťou musí byť jednotkové zosílenie otvorenej smyčky L.
+\begin{align}
+|L(j\omega_d)|&=|C(j\omega_d)||G(j\omega_d)|=k_d\sqrt{1+0.01}\omega_{d}\sqrt{2}|P(j\omega_{d})|\nonumber\\
+&\approx k_d\omega_{d}\sqrt{2}|P(j\omega_{d})|=1
+\end{align} 
+\begin{equation}
+k_d=\frac{1}{\omega_d\sqrt{2}|P(j\omega_d)|}
+\end{equation}
+Zosílenie $|P(j\omega_d)|$ je
+\begin{equation}
+|P(j\omega_d)|_{dB}=-39.95\,dB \rightarrow |P(j\omega_d)|=0.0225 
+\end{equation}
+\begin{equation}
+k_d=
+\end{equation}
+\begin{equation}
+k_p=1.1\omega_{d}k_d=
+\end{equation}
+\begin{equation}
+k_i=0.1\omega_{d}^2k_d=
+\end{equation}
+
+\end{document}
+
+

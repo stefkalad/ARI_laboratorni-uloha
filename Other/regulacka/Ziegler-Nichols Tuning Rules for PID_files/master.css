@@ -1,0 +1,385 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto';
+body  {
+	color : #000000;
+	background-color : #ffffff;
+	margin : 0px 0px 0px 0px;
+	font-family : Roboto, Open Sans, arial, geneva, verdana, helvetica, sans-serif;
+}
+table.master {
+	background-color: #ffffff;
+	position : relative;
+	width : 950px;
+}
+p, li, dt, dd, td, th, blockquote, pre  {font-size : 100%;}
+h1  {font-family: Open Sans, sans-serif; font-size : 120%;}
+h2  {font-family: Open Sans, sans-serif; font-size : 110%; padding: 5px 10px 5px 10px; background-color: #b0c4de; clear:both;}
+h3  {font-family: Open Sans, sans-serif; font-size : 100%;}
+h4  {font-family: Open Sans, sans-serif; font-size : 100%;}
+strong	{font-weight: bold;}
+a    {
+	color : #0000ff;
+	text-decoration : none;
+}
+a:visited    {
+	color : #800080;
+}
+a:hover  {
+	text-decoration : underline;
+}
+a:active    {
+	color : #ff0000;
+}
+h4.v2 {clear:both; border-bottom: thin solid silver; margin-top:2em; }
+h2.main {margin:-10px -10px 10px -10px; }
+p.links { 
+    font-family: Open Sans, sans-serif;
+	font-weight : bold;
+	font-size : 13px;
+	margin-bottom : 7px;
+}
+p.links2 { 
+    font-family: Open Sans, sans-serif;
+	font-size : 13px;
+	margin : 5px 0px 7px 7px;
+}
+p.links3 { 
+    font-family: Open Sans, sans-serif;
+	font-size : 13px;
+	margin : 5px 0px 7px 17px;
+}
+a.links    {
+	color : #000099;
+}
+a:visited.links    {
+	color : #000099;
+}
+a:hover.links  {
+	background-color : white;
+}
+a.on    {
+	color : #0000cc;
+	text-decoration : underline;
+}
+a:visited.on    {
+	color : #0000cc;
+	text-decoration : underline;
+}
+p.featurelinks { 
+    font-family: Open Sans, sans-serif;
+	font-weight : bold;
+	font-size : 13px;
+	padding : 0px 10px 0px 10px;
+	margin : 4px 0px 4px 0px;
+}
+p.featurelinks2 { 
+    font-family: Open Sans, sans-serif;
+	font-size : 13px;
+	padding : 0px 10px 0px 10px;
+	margin : 4px 0px 7px 0px;
+}
+.featurelinks { 
+	background-color : #b0c4de; 
+}
+.featurelinks2 { 
+	background-color : #f0f8ff; 
+}
+td.featurelinks2 { border : thin solid #b0c4de; }
+.highlight {
+	background-color: #b0c4de;
+	padding: 3px 3px 3px 3px;
+	margin: -5px 0px -10px 0px;
+	vertical-align : top;
+}
+.highlightcolor {
+	background-color: #b0c4de;
+}
+p.featurelinksr { 
+	font-weight : bold;
+	font-size : 13px;
+	padding : 0px 10px 0px 10px;
+	margin : 4px 0px 4px 0px;
+}
+p.featurelinks2r { 
+    font-family: Open Sans, sans-serif;
+	font-size : 13px;
+	padding : 0px 10px 0px 10px;
+	margin : 4px 0px 7px 0px;
+}
+.featurelinksr { 
+	background-color : #dc143c;
+}
+.featurelinks2r { 
+	background-color : #ffe4e1;
+}
+.featurelinksr	{
+	color:#ffffff;
+}
+p.country { 
+	font-family : verdana, arial, helvetica, sans-serif;
+	font-size : 12px; 
+}
+.clipsright {
+	border: thin ridge Blue; 
+	padding: 10px 10px 10px 10px; 
+	margin: 15px 0px 10px 10px;
+	width: 35%; 
+	float: right;
+	clear: right;
+}
+.clipsfont {
+	font: 100% Garamond, Verdana, serif;
+}
+h4.clipsfont {
+	font: bold 100% Garamond, Verdana, serif;
+}
+.text {
+	font-family: serif;
+	font-size : 100%; 
+}
+tr.header {
+	height: 95px; 
+	background-color : #ffffff; 
+}
+h1.header {
+	width: 550px;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+h2.header {
+	width: 550px;
+	margin-bottom: 0;
+}
+h4.header {
+	width: 550px;
+	margin-bottom: 0;
+}
+img.header {
+	border: 0;
+	position:relative;
+	float:left;
+}
+p.topic {
+    font-family: Open Sans, sans-serif;
+	font-size : 13px;
+	margin: 0px;
+	padding: 3px;
+}
+h4.topic {
+    font-family: Open Sans, sans-serif;
+	font-size : 13px;
+	margin: 0px;
+	padding: 3px;
+}
+a.topic {
+	color : #000099;
+}
+a:visited.topic    {
+	color : #000099;
+}
+td:hover.topic  {
+	background-color : #eeeeee;
+}
+td.topic {
+	background-color : white;
+}
+a.topic1 {
+	color : #000099;
+	background-color: #66cc66;
+}
+a:visited.topic1    {
+	color : #000099;
+}
+a:hover.topic1	{
+	background-color: white;
+}
+img.header2 {
+	border: 0;
+	position:relative;
+	top: 0px;
+	right: 0px;
+}
+img.headerbar {
+	border: 0;
+	position:absolute;
+	top: 50px;
+	left: 418px;
+}
+table.headerbar {
+	border: 0;
+	position:relative;
+	top: 16px;
+	right: 0px;
+}
+table.headerbarhome {
+	border: 0;
+	position:relative;
+	top: 16px;
+	right: 0px;
+}
+td.nav {
+	width: 130px;
+	background-color : #e7e7e7;
+	/* border-right: thin solid Silver; 
+	border-top: thin solid Silver; */
+}
+.footer { 
+    font-family: Open Sans, sans-serif;
+	font-size : 13px;
+	margin : 10px 0px 7px 0px;
+	border-top: thin solid Blue; 
+	padding-top: 5px; 
+	clear:both;
+}
+.ad {
+	background-color:#fffacd; 
+}
+.ad2 { 
+    font-family: Open Sans, sans-serif;
+	padding : 5px;
+	font-size : 13px;
+}
+.adg {
+	border: thin solid #B0C4DE; 
+}
+.adgl{
+	color: #008000;
+}
+.si1 {
+	margin-top:-10px;
+}
+li.si {
+	margin-bottom:5px; 
+	margin-left:-1em;
+}
+table.siright {
+	margin-left:1em;
+	margin-bottom:1em;
+	float:right;
+}
+.si2 {
+	clear:both; 
+    border-top:thin solid Navy; 
+    padding: 0 1em 5px 1em; 
+    margin-bottom: 1em;
+}
+.dr {
+	float:right; 
+	padding-left:1em;
+	padding-bottom:1em;
+}
+ul.TabSet {
+	font: bold 14px Arial;
+	padding: 4px 0px 2px 0px;
+	margin: 0px 0px 0px 0px; 
+}
+ul.TabSet li {
+	list-style: none;
+	display: inline;
+	margin: 0px 8px 0px 0px;
+	padding: 4px 4px 2px 4px;
+}
+ul.TabSet li.TabActive {
+	background: #8AB0DE;
+}
+ul.TabSet li.TabInactive {
+	background: #dcdcdc;
+}
+ul.TabSet li.TabHost {
+	background: #8AB0DE;
+	padding-bottom: 3px;
+}
+ul.TabSet li.TabActive a {
+	color : white;
+}
+ul.TabSet li.TabInactive a {
+	color : #000080;
+}
+ul.TabSet li.TabHost a {
+	color : white;
+}
+.TabSetGroup ul.TabSet {
+	display: none;
+	background: #8AB0DE;
+	padding: 10px 4px 4px 4px;
+	font: bold 14px Arial;
+	margin-top: 0px;
+}
+.TabSetGroup ul.TabSet li {
+	padding: 4px 3px 0px 3px;
+	margin: 0px 4px 0px 4px;
+	border: none;
+}
+.TabSetGroup ul.TabSet li.TabActive {
+	padding-bottom: 5px;
+	background: white;
+}
+.TabSetGroup ul.TabSet li.TabInactive {
+	background: #A7C3E5;
+	padding-bottom: 4px;
+}
+.TabSetGroup ul.TabSet li.TabActive a {
+	color:black;
+}
+.TabSetGroup ul.TabSet li.TabHost {
+	background: white;
+	padding-bottom: 5px;
+	border-bottom: 0px;
+}
+.TabSetGroup ul.TabSet li.TabHost a {
+	color:black;
+}
+.TabVertical ul.TabSet {
+	margin: 10px 0px 0px 0px; 
+	padding: 10px 0px 0px 0px; 
+	background: white;
+}
+.TabVertical ul.TabSet li {
+	margin: 0px 0px 10px 0px; 
+	display: block;
+}
+.TabVertical ul.TabSet li.TabActive {
+	padding: 0px 0px 0px 0px;
+	background: #8AB0DE;
+}
+.TabVertical ul.TabSet li.TabActive a {
+	color: white;
+}
+.TabVertical ul.TabSet li.TabInactive {
+	padding: 0px 0px 0px 0px;  
+	background: #dcdcdc;
+}
+.TabSheets {
+  height: 250px;
+  margin-top: 0px;
+  padding: 0px;
+  background: #e7e7e7;
+}
+.TabSheet {
+  display:block;
+}
+.textsheet {
+	font-family : arial;
+	font-size : 10pt;
+	padding: 12px 28px 8px 8px;
+	height: 250px;
+	text-align: left;
+}
+td.hover {
+  background: #eeeeee;
+}
+td.hover_main {
+  background: #eeeeee;
+  background-image: url(graphics/vertical.jpg); background-repeat: repeat-x;
+}
+.light { background-image: url(graphics/tabs/greylight.gif); } 
+.basic {background-image: url(graphics/tabs/grey.gif);} 
+.highlighton { background-image: url(graphics/tabs/bluelight.gif); }
+.basicon {background-image: url(graphics/tabs/blue.gif);}
+.corner { background-image: url(graphics/tabs/blueleft.gif); background-position: top; background-repeat: no-repeat; }
+.corneron { background-image: url(graphics/tabs/bluelightleft.gif); background-position: top; background-repeat: no-repeat; }
+.corner1 { background-image: url(graphics/tabs/blueright.gif); background-position: top; background-repeat: no-repeat; }
+.corner1on { background-image: url(graphics/tabs/bluelightright.gif); background-position: top; background-repeat: no-repeat; }
+.cornergl { background-image: url(graphics/tabs/greyleft.gif); background-position: top; background-repeat: no-repeat; }
+.cornerglon { background-image: url(graphics/tabs/greylightleft.gif); background-position: top; background-repeat: no-repeat; }
+.cornergr { background-image: url(graphics/tabs/greyright.gif); background-position: top; background-repeat: no-repeat; }
+.cornergron { background-image: url(graphics/tabs/greylightright.gif); background-position: top; background-repeat: no-repeat; }

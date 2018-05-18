@@ -95,21 +95,35 @@ kp_PD = 1/(sqrt(2)*abs_H)
 kd_PD = 1/(omegad*sqrt(2)*abs_H)
 
 load("WERKSPEJS_REGULATORS/pd_test")
-h2_real=[ty(:,1) ty(:,4)];
+h2_real_PD=[ty(:,1) ty(:,4)];
+u_real_PD=[ty(:,1) ty(:,2)];
 
 %% PID regulator
+load("WERKSPEJS_REGULATORS/pid_test")
+h2_real_PID=[ty(:,1) ty(:,4)];
+
 [Ku, Fk, wu, wf] = margin(H)
 Tu = 2*pi/wu
-kp_PID = 0.6*Ku
-ki_PID = Tu/2
-kd_PID = Tu / 8
+%kp_PID = 0.6*Ku
+%ki_PID = Tu/2
+%kd_PID = Tu / 8
+kp_PID = 7
+ki_PID = 0.8
+kd_PID = 30
 
 %% PI regulator
+load("WERKSPEJS_REGULATORS/pi_test")
+h2_real_PI=[ty(:,1) ty(:,4)];
+u_real_PI=[ty(:,1) ty(:,2)];
 %kp_PI = 4.4816;
 %ki_PI = 0.2801
 %konstanty odladene
+%REAL MODEL 
 kp_PI=2.6
 ki_PI=0.3
+%OUR MODEL
+kp_PI=6.74
+ki_PI=0.561
 
 
 

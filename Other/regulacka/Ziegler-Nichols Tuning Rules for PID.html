@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0049)http://www.mstarlabs.com/control/znrule.html#Ref4 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Ziegler-Nichols Tuning Rules for PID</title>
+	<link rev="made" href="mailto:info@mstarlabs.com">
+	<link href="./Ziegler-Nichols Tuning Rules for PID_files/master.css" rel="stylesheet" type="text/css">
+	
+	<meta name="generator" content="NoteTab Pro 4.95">
+	<meta name="author" content="Larry Trammell, Microstar Laboratories, Inc.">
+	<meta name="description" content="Discusses methods, assumptions, and hazards of applying classic tuning rules for PID gain adjustment.">
+	<meta name="keywords" content="PID, PID tuning, system identification, Nichols-Ziegler rule, processing command, control, Data Acquisition Processor, DAPL, Microstar Laboratories">
+	<script type="text/javascript" async="" src="./Ziegler-Nichols Tuning Rules for PID_files/linkid.js.stiahnuť"></script><script type="text/javascript" async="" src="./Ziegler-Nichols Tuning Rules for PID_files/analytics.js.stiahnuť"></script><script async="" src="./Ziegler-Nichols Tuning Rules for PID_files/gtm.js.stiahnuť"></script><script src="./Ziegler-Nichols Tuning Rules for PID_files/hb.js.stiahnuť" type="text/javascript"></script>
+</head>
+
+<body onload="preloadImages();">
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5S6C48"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5S6C48');</script>
+<!-- End Google Tag Manager -->
+
+<table border="0" cellspacing="0" cellpadding="10" align="center" class="master">
+<tbody><tr class="header"><td class="header" valign="top" colspan="2" align="right">
+<a href="http://www.mstarlabs.com/index.html"><img src="./Ziegler-Nichols Tuning Rules for PID_files/logo175.jpg" alt="Data Acquisition (DAQ) and Control from Microstar Laboratories" width="185" height="70" class="header"></a>
+<h1 class="header">Ziegler-Nichols Tuning Rules for PID</h1>
+<!-- image navigation -->
+<table border="0" cellspacing="0" cellpadding="0" class="headerbar"><tbody><tr>
+<td>
+	<a href="http://www.mstarlabs.com/dataacquisition/dap.html" onmouseover="changeI(&#39;hb_01&#39;, &#39;../images/hb_01-over.gif&#39;); return true;" onmouseout="changeI(&#39;hb_01&#39;, &#39;../images/hb_01.gif&#39;); return true;">
+	<img src="./Ziegler-Nichols Tuning Rules for PID_files/hb_01.gif" alt="data acquisition" name="hb_01" id="hb_01" width="75" height="40" border="0"></a></td>
+<td><img src="./Ziegler-Nichols Tuning Rules for PID_files/hb_02.gif" width="14" height="40"></td>
+<td>
+	<a href="http://www.mstarlabs.com/filter.html" onmouseover="changeI(&#39;hb_03&#39;, &#39;../images/hb_03-over.gif&#39;); return true;" onmouseout="changeI(&#39;hb_03&#39;, &#39;../images/hb_03.gif&#39;); return true;">
+	<img src="./Ziegler-Nichols Tuning Rules for PID_files/hb_03.gif" alt="filtering" name="hb_03" id="hb_03" width="75" height="40" border="0"></a></td>
+<td><img src="./Ziegler-Nichols Tuning Rules for PID_files/hb_04.gif" width="14" height="40"></td>
+<td>
+	<a href="http://www.mstarlabs.com/software/software.html" onmouseover="changeI(&#39;hb_05&#39;, &#39;../images/hb_05-over.gif&#39;); return true;" onmouseout="changeI(&#39;hb_05&#39;, &#39;../images/hb_05.gif&#39;); return true;">
+	<img src="./Ziegler-Nichols Tuning Rules for PID_files/hb_05.gif" alt="data acquisition software" name="hb_05" id="hb_05" width="75" height="40" border="0"></a></td>
+<td><img src="./Ziegler-Nichols Tuning Rules for PID_files/hb_06.gif" width="14" height="40"></td>
+<td>
+	<a href="http://www.mstarlabs.com/access/hwaccess.html" onmouseover="changeI(&#39;hb_07&#39;, &#39;../images/hb_07-over.gif&#39;, &#39;hb_08&#39;, &#39;../images/hb_08-hb_07_o.gif&#39;, &#39;hb_09&#39;, &#39;../images/hb_09-hb_07_o.gif&#39;); return true;" onmouseout="changeI(&#39;hb_07&#39;, &#39;../images/hb_07.gif&#39;, &#39;hb_08&#39;, &#39;../images/hb_08.gif&#39;, &#39;hb_09&#39;, &#39;../images/hb_09.gif&#39;); return true;">
+		<img src="./Ziegler-Nichols Tuning Rules for PID_files/hb_07.gif" alt="channel architecture" name="hb_07" id="hb_07" width="75" height="40" border="0"></a></td>
+<td><img name="hb_08" src="./Ziegler-Nichols Tuning Rules for PID_files/hb_08.gif" width="14" height="40"></td>
+<td>
+	<a href="http://www.mstarlabs.com/access/enclos.html" onmouseover="changeI(&#39;hb_09&#39;, &#39;../images/hb_09-over.gif&#39;); return true;" onmouseout="changeI(&#39;hb_09&#39;, &#39;../images/hb_09.gif&#39;); return true;">
+		<img src="./Ziegler-Nichols Tuning Rules for PID_files/hb_09.gif" alt="enclosures" name="hb_09" id="hb_09" width="76" height="40" border="0"></a></td>
+<td><img src="./Ziegler-Nichols Tuning Rules for PID_files/hb_10.gif" width="12" height="40"></td>
+<td>
+	<a href="http://www.mstarlabs.com/systems/systems.html" onmouseover="changeI(&#39;hb_11&#39;, &#39;../images/hb_11-over.jpg&#39;); return true;" onmouseout="changeI(&#39;hb_11&#39;, &#39;../images/hb_11.jpg&#39;); return true;">
+	<img src="./Ziegler-Nichols Tuning Rules for PID_files/hb_11.jpg" alt="services" name="hb_11" id="hb_11" width="76" height="40" border="0"></a></td>
+</tr></tbody></table>
+<!-- end image navigation -->
+</td></tr>
+<tr>
+<!-- Navigation Section -->
+<td valign="top" class="nav">
+<p class="links"><a href="http://www.mstarlabs.com/index.html" class="links">Home</a></p>
+<p class="links"><a href="http://www.mstarlabs.com/products.html" class="links">Products</a></p>
+<p class="links"><a href="http://www.mstarlabs.com/apeng/apps.html" class="links">Applications</a></p>
+	<p class="links2"><a href="http://www.mstarlabs.com/daq.html" class="links">Data Acquisition</a></p>
+	<p class="links2"><a href="http://www.mstarlabs.com/apeng/casestudies.html" class="links">Case Studies</a></p>
+	<p class="links2"><a href="http://www.mstarlabs.com/control.html" class="on">Control</a></p>
+	<p class="links2"><a href="http://www.mstarlabs.com/dsp.html" class="links">DSP</a></p>
+	<p class="links2"><a href="http://www.mstarlabs.com/apeng/techniques/techniq.html" class="links">Software Techniques</a></p>
+	<p class="links2"><a href="http://www.mstarlabs.com/apeng/integration/integrate.html" class="links">Integrated Systems</a></p>
+<p class="links"><a href="http://www.mstarlabs.com/docs/index.html" class="links">Documents</a></p>
+<p class="links"><a href="http://www.mstarlabs.com/dap_user.html" class="links">Support</a></p>
+<p class="links"><a href="http://www.mstarlabs.com/contact.html" class="links">Contact Us</a></p>
+<p class="links"><a href="http://www.mstarlabs.com/aboutmsl.html" class="links">Company</a></p>
+<p class="links"><a href="http://www.mstarlabs.com/search/findit.html" class="links">Search</a></p>
+</td>
+<!-- /Navigation Section -->
+<td valign="top">
+<h2>Introduction</h2>
+
+<a href="http://www.mstarlabs.com/control.html"><img src="./Ziegler-Nichols Tuning Rules for PID_files/zncliff.gif" alt="icon" width="78" height="64" border="1" style="float: right; margin-left: 5px; margin-bottom: 5px;"></a>
+
+<p><small>(View more <a href="http://www.mstarlabs.com/control.html">Control information</a>)</small></p>
+
+<p>A recent opinion piece published in the trade magazine <i>Control Engineering</i> proposed that the Ziegler-Nichols tuning rule would serve as the basis for a coming new generation of PID technology: <a href="http://www.mstarlabs.com/control/znrule.html#Ref1">"Improved performance, ease of use, low cost, and training will put Ziegler and Nichols in the driver's seat..." [1]</a> Well, maybe so, but it seems to us that Ziegler-Nichols tuning is a very limited technology that is unlikely to be successful in that role. The rest of this article will explain why, exploring how to use the rule and where things can go wrong. </p>
+
+<table border="0" style="float:right;" width="200">
+<tbody><tr align="right" valign="top"><th class="featurelinks">
+<p class="featurelinks">Related Product</p></th></tr>
+<tr align="right" valign="middle"><td class="featurelinks2">
+<p class="featurelinks2"><a href="http://www.mstarlabs.com/dataacquisition/5216/5216spec.html" class="links"><img src="./Ziegler-Nichols Tuning Rules for PID_files/dap5216_.jpg" alt="data acquisition and control board" width="199" height="102" border="0"><br>Use Data Acquisition Processor (DAP) boards to control and monitor many channels with a single device</a></p>
+</td></tr>
+</tbody></table>
+
+<p>The time-honored <a href="http://www.mstarlabs.com/control/znrule.html#Ref2">Ziegler-Nichols tuning rule
+[2,3]</a> (<em>"Z-N rule"</em>), as introduced in the 1940s,
+had a large impact in making PID feedback controls acceptable to
+control engineers. PID was known, but applied only reluctantly
+because of stability concerns. With the Ziegler-Nichols rule,
+engineers finally had a practical and systematic way of tuning
+PID loops for improved performance. Never mind that the rule was
+based on science fiction. After taking just a few basic
+measurements of actual system response, the tuning rule
+confidently recommends the PID gains to use. If results are what
+really matter, the results are... well, let's not talk about
+performance just yet. </p>
+
+<p> Tuning rules simplify or perhaps over-simplify the PID
+loop tuning problem to the point that it can be solved with
+slide-rule technology. (Anybody remember the slide-rule?) Maybe
+that's not the best we can do today, but a weak alternative that
+is <strong> available </strong> can look a lot better than a
+good alternative that is <strong> not.</strong> That is why the
+Ziegler-Nichols Rule is still going strong today. </p>
+
+<h2> What is the Ziegler-Nichols Rule? </h2>
+
+<p> The Ziegler-Nichols rule is a heuristic PID tuning rule
+that attempts to produce good values for the three PID gain
+parameters: </p>
+
+<ol>
+  <li><var>Kp</var> -  the controller path gain</li>
+  <li><var>Ti</var> -  the controller's integrator time constant</li>
+  <li><var>Td</var> -  the controller's derivative time constant</li>
+</ol>
+
+<p> given two measured feedback loop parameters derived from
+measurements: </p>
+
+<ol>
+  <li> the period <var>Tu</var> of the oscillation frequency at the
+    stability limit</li>
+  <li> the gain margin <var>Ku</var> for loop stability </li>
+</ol>
+
+<p> with the goal of achieving good regulation (disturbance
+rejection). </p>
+
+
+
+<h2>When Does the Ziegler-Nichols Rule Work? </h2>
+
+<p> Tuning rules work quite well when you have an analog
+controller, a system that is linear, monotonic, and sluggish,
+and a response that is dominated by a single-pole exponential
+"lag" or something that acts a lot like one.</p>
+
+<p> Actual plants are unlikely to have a perfect first-order lag
+characteristic, but this approximation is reasonable to describe
+the frequency response rolloff in a majority of cases. Higher-order poles
+will introduce an extra phase shift, however. Even if they don't
+affect the shape of the gain rolloff much, the phase shift matters
+a lot to loop stability. You can't depend upon a single "lag"
+pole to match both the amplitude rolloff and the phase
+shift accurately. </p>
+
+<p> So the Ziegler-Nichols model presumes an additional
+fictional phase adjustment that does not distort the assumed
+magnitude rolloff. At the stability margin, there is a 180
+degree phase shift around the feedback loop (Nyquist's stability
+criterion). A first order lag can contribute no more than 90
+degrees of that phase shift. The rest of the observed phase
+shift must be covered by the artificial phase adjustment. The
+phase adjustment is presumed to be a straight line between zero
+and the critical frequency where 180 degrees of phase shift occurs.
+A "straight line" phase shift corresponds to a pure time delay.
+Is this consistent with the actual phase shifts? Well, probably
+not, so hope for the best. </p>
+
+<p> To summarize, then, the Ziegler-Nichols rule <strong>
+assumes </strong> that the system has a transfer function of the
+following form: </p>
+
+<img src="./Ziegler-Nichols Tuning Rules for PID_files/model.png" width="139" height="66" border="0" alt="Assumed plant model">
+
+<p> The model matches the system response at frequencies 0 and
+at the stability limit, and everything else is more or less made
+up in between. If the actual system is linear, monotonic, and
+sluggish, it doesn't make much difference that the model is
+fake, and results are good enough. If the actual system does not
+match the assumed model adequately, then sorry, you're on your own.
+</p>
+
+<h2> How Do You Measure the Response Parameters? </h2>
+
+<p> You don't need to determine all of the model parameters
+to apply Z-N tuning, but if you wanted to do so, here is how
+you could measure them. </p>
+
+<p> Perform a frequency response test on the system, to
+determine the gain magnitude and the phase shift as a
+function of frequency. You can take your system offline,
+attach a signal source, and attach a data acquisition system
+to measure input and output data sets. Or, if you are
+smarter about it, you can <a href="http://www.mstarlabs.com/control/znrule.html#Ref5">measure your
+system response online [5]</a> while the PID loop is operating. </p>
+
+<p> Given the magnitude and phase open-loop response curves of
+the plant, you can fit the assumed model in the following
+manner. </p>
+
+<ol>
+   <li> <p>The ratio of output level to input level at low
+   frequencies determines the gain parameter <code>K </code>
+   of the model. </p> </li>
+
+   <li> <p>Observe the frequency <code>F<sub>u</sub></code>
+   at which the phase passes through -pi radians (-180
+   degrees). The inverse of this frequency is the period of the
+   oscillation, <code>T<sub>u</sub></code>.</p> </li>
+
+   <li> <p>Observe the plant gain <code>K<sub>c</sub></code>
+   that occurs at the critical oscillation frequency <code>
+   F<sub>u</sub></code>. The inverse of this is the gain
+   margin <code>K<sub>u</sub></code>.</p>
+   </li>
+
+   <li> <p>Apply the frequency
+   <code>F<sub>u</sub></code> to the plant first order lag terms
+   to solve for the model's <code>a</code> term. </p>
+
+   <img src="./Ziegler-Nichols Tuning Rules for PID_files/aparam.png" width="316" height="46" border="0" alt="Formula for fitting lag time constant">
+   </li>
+
+   <li> <p> Evaluate the phase shift of the lag stage by substituting
+   <code>F<sub>u</sub></code> into the first-order lag model.</p>
+
+   <img src="./Ziegler-Nichols Tuning Rules for PID_files/lagphz.png" width="294" height="65" border="0" alt="Phase shift due to first-order lag"></li>
+
+   <li><p> The rest of the 180 degrees of phase shift are assigned
+   to the pure time delay term. </p>
+
+   <img src="./Ziegler-Nichols Tuning Rules for PID_files/tdelay.png" width="294" height="65" border="0" alt="Calculation of the time delay constant">
+   </li>
+
+</ol>
+
+<p> In practice, you don't need to construct the complete model,
+and you can stop after completing step 3 above. </p>
+
+
+<h2> Applying the Tuning Rule </h2>
+
+<p> Use the values of K<sub>u</sub> and T<sub>u</sub> to
+determine values of PID gain setting according to the
+following <a href="http://www.mstarlabs.com/control/znrule.html#Ref4">tuning rule table. [4]</a>
+</p>
+
+<a name="Backref1"></a>
+<table border="1" width="80%">
+  <tbody><tr>
+    <th>
+    Rule Name
+    </th>
+    <th>
+    Tuning Parameters
+    </th>
+  </tr>
+  <tr>
+    <td>
+    Classic Ziegler-Nichols
+    </td>
+    <td>
+    Kp = 0.6 Ku &nbsp;&nbsp;&nbsp; Ti = 0.5 Tu &nbsp;&nbsp;&nbsp; Td = 0.125 Tu
+    </td>
+  </tr>
+  <tr>
+    <td>
+    Pessen Integral Rule
+    </td>
+    <td>
+    Kp = 0.7 Ku &nbsp;&nbsp;&nbsp; Ti = 0.4 Tu &nbsp;&nbsp;&nbsp; Td = 0.15 Tu
+    </td>
+  </tr>
+  <tr>
+    <td>
+    Some Overshoot
+    </td>
+    <td>
+    Kp = 0.33 Ku &nbsp;&nbsp; Ti = 0.5 Tu &nbsp;&nbsp;&nbsp; Td = 0.33 Tu
+    </td>
+  </tr>
+  <tr>
+    <td>
+    No Overshoot
+    </td>
+    <td>
+    Kp = 0.2 Ku &nbsp;&nbsp;&nbsp; Ti = 0.5 Tu &nbsp;&nbsp;&nbsp; Td = 0.33 Tu
+    </td>
+  </tr>
+</tbody></table>
+<br>
+
+<p>
+Why are there multiple rules? Well, remember, all of these are
+just heuristics. Some people find the transient overshoot levels
+of the classic Z-N rule excessive and will accept a slightly
+longer transient interval in exchange for smoother settling.
+Some people find that the Z-N classic rule doesn't quite achieve
+the disturbance rejection goals that were the original
+objective. Pick the rule that you think works best for you. This
+might be an ad-hoc solution, but it is an ad-hoc solution
+that can be <em>applied systematically</em>.  </p>
+
+<h2> A Tuning Example </h2>
+
+<p> The following illustration shows plotted data of the
+system's open loop frequency response, gain and phase, as
+captured by an automated online test performed by <a href="http://www.mstarlabs.com/control/znrule.html#Ref5"> the <code>PIDZMON</code> command, [5]</a> described in another
+note on this site. The green lines and the magenta line have
+been superimposed on the screen capture image. </p>
+
+<img src="./Ziegler-Nichols Tuning Rules for PID_files/magphs2.png" alt="Test data capture" width="431" height="572" border="0" style="float:left; padding-right:5px; padding-bottom:10px;">
+
+    <p> Tracing along the horizontal green line in the lower plot,
+we can see that the critical 180 degree phase shift occurs
+at a location that is about 120/200 of the Nyquist frequency.
+Given that the sampling rate was 50 Hz, this would correspond
+to a critical frequency 0.6 * 1/2 * 50 Hz, or 15 Hz. The
+corresponding critical time interval is the inverse,
+Tu=0.06666 seconds.</p>
+
+    <p> Tracing vertically at this frequency along the magenta line,
+the upper plot shows that the open loop gain of the plant has
+rolled off to a value of about 0.09 here. Applying a controller
+gain of about 11.1 as indicated by the green brackets would result
+in a net loop gain 1.0 with a phase shift of 180 degrees, so the
+system would be operating with sustained oscillation at the
+stability limit. Thus, the gain margin Ku is about 11.1. </p>
+
+<p style="clear: left;"> Choosing the classical Ziegler-Nichols tuning rule, we would then determine that the PID gains should be </p>
+
+<pre>  loop gain Kp = 0.6 * Ku = 6.7
+  integral time constant Ti = 0.5 * Tu = 0.033
+  derivative time constant Td = 0.125 * Tu = .0083
+</pre>
+
+
+<h2> Why Do We Keep Hinting That Results are Lousy? </h2>
+
+<p> Among the reasons: </p>
+
+<ul>
+  <li><b>Garbage-in, garbage out.</b> If you believe (or hope)
+    that the tuning rule assumptions are good, but they are
+    not, anything could happen. </li>
+  <li><b>Limited applicability.</b> Even if you are not fooled when
+    the assumptions do not apply, there might not be much you
+    can do about it.</li>
+  <li><b>Inconsistent design goals.</b> The Ziegler-Nichols
+    tuning rule is meant to give your PID loops best disturbance
+    rejection performance. This setting typically does not
+    give very good command tracking performance. It is easy to
+    pick a tuning rule that is poor for the application, and
+    you might not realize it.</li>
+  <li><b>Overly aggressive gains.</b>
+    Tunings based on a continuous system analysis can produce
+    erratic behaviors with a discrete controller. When the
+    pure delay parameter is small, the critical frequency can
+    be too close to the Nyquist limit, in a range where
+    a zero-order hold results in choppy signals. </li>
+  <li><b>Dependence on non-reality.</b>
+    The ability of the model to predict good tunings is highly
+    dependent on the unrealistic pure time delay assumption, which
+    can perform rather badly, for example, when phase shift results
+    from a complex pole pair. </li>
+</ul>
+
+<p> These problems and others have prompted other tuning strategies.
+There is no arguing with success, but success is not guaranteed, so
+you have to be careful. </p>
+
+
+<h2> Conclusions </h2>
+
+<p> Tuning rules such as the Z-N rule and its variants are
+embedded into well established, very convenient generalized
+controller products. All have the same advantages and
+disadvantages: <em> If the rule works, great! Use it. If it
+doesn't work... </em> then what are you going to do? </p>
+
+<p> Unfortunately, we cannot recommend the Z-N rule or related
+tuning rules strongly. The idea is straightforward but the
+application is tricky. Ordinarily, you need to test your system
+offline and instrument it for special response tests. <a href="http://www.mstarlabs.com/dataacquisition/dap.html">DAP-based</a>
+controls can perform the tests online and <a href="http://www.mstarlabs.com/control/znrule.html#Ref5">
+deliver the response curves [5]</a>, maintaining control and
+never missing a tick. While this adds no new fundamental
+capabilities, at least it represents a shift from a manual
+offline measurement process to an automated online one. This
+seems to be what the <i>Control Engineering</i> article praises as
+the ultimate in technology. While we can consider the Ziegler-Nichols rule helpful, there are more robust alternatives available today. You can test the method using your <a href="http://www.mstarlabs.com/dataacquisition/dap.html">DAP system</a>. Download the <a href="http://www.mstarlabs.com/control/selftest.html">free command</a> code and find out for yourself.
+</p>
+
+<hr width="75%">
+<h4>Footnotes and References:</h4>
+<blockquote>
+<ol>
+
+<li><a name="Ref1"></a>"Getting in tune with Ziegler-Nichols," Thomas R. Kurfess, PhD, in the Academic Viewpoint column, <i>Control Engineering</i> magazine, Feb 2007 issue, p. 28, <a href="http://www.controleng.com/article/CA6412703.html">http://www.controleng.com/</a>.</li>
+
+<li><a name="Ref2"></a>The classic original paper: "Optimum settings for automatic controllers," J. B. Ziegler and N. B. Nichols, <i>ASME Transactions</i>, v64 (1942), pp. 759-768.</li>
+
+<li><a name="Ref3"></a>A more recent survey that covers the Ziegler-Nichols and Kappa-Tau tuning rules: "Automatic Tuning of PID Controllers," Karl J. Åström &amp; Tore Hägglund, Chapter 52, <i>The Control Handbook</i>, IEEE/CRC Press, 1995, William S. Levine ed. </li>
+
+<li><a name="Ref4"></a>Selected from the tuning rules listed in the paper "Rule-Based Autotuning Based on Frequency Domain Identification," Anthony S. McCormack and Keith R. Godfrey, <i>IEEE Transactions on Control Systems Technology</i>, vol 6 no 1, January 1998.</li>
+
+<li> <a name="Ref5"></a> For more information about obtaining frequency response curves automatically, see the article <a href="http://www.mstarlabs.com/control/selftest.html">A Self-Testing PID Loop</a> on this site.</li>
+</ol>
+</blockquote>
+
+<p>&nbsp;</p>
+<p>Return to the <a href="http://www.mstarlabs.com/control.html">Control</a> page.</p>
+<p class="footer">
+<a href="http://www.mstarlabs.com/iprop.html" class="links">© 1994-2018</a>, <a href="http://www.mstarlabs.com/index.html" class="links">Microstar Laboratories, Inc.</a>, All Rights Reserved.<br>
+<a href="mailto:webmaster@mstarlabs.com" class="links" style="float:right;">webmaster@mstarlabs.com</a> <a href="http://www.mstarlabs.com/contact.html" class="links" style="float:left;">888-678-2752 (US/Canada) or +1-425-453-2345</a>
+</p>
+</td>
+</tr>
+</tbody></table>
+
+
+
+</body></html>
