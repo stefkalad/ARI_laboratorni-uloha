@@ -55,29 +55,20 @@ pCL(2) = -zeta*omega - i*omega*sqrt(1-zeta^2)
 pCL(3) = -1
 %Kn=acker(A,B(:,1),[pCL(1),pCL(2),pCL(3)])
 
-
-%% 
-% new matrices
-a = A;
-b = B(:,1);
-c = C(2,:);
-d = 0;
 % transfer u to h2
 Hol = tf(ss(A,B(:,1),C(2,:),0))
 [b,a] = ss2tf(A,B(:,1),C(2,:),0)
 
 %[At, Bt, Ct, Dt] = tf2ss(b,a)
 
-%An = [At zeros(2,1); -Ct 0]
-%Bn = [Bt; 0]
-%Cn = [Ct 0]
 An = [A zeros(2,1); -C(2,:) 0]
 Bn = [B(:,1); 0]
-Cn = [C(2,:) 0]
+Cn = [C(2,:) 0];
 
 Cr = [Bn An*Bn An*An*Bn]
 
 Kn=acker(An,Bn,[pCL(1),pCL(2),pCL(3)])
+Kn= [5 5 -1.4]
 
 %% PD regulator
 Hreg = tf([4],[1 2.82 4])
@@ -95,12 +86,57 @@ kp_PD = 1/(sqrt(2)*abs_H)
 kd_PD = 1/(omegad*sqrt(2)*abs_H)
 
 load("WERKSPEJS_REGULATORS/pd_test")
-h2_real_PD=[ty(:,1) ty(:,4)];
-u_real_PD=[ty(:,1) ty(:,2)];
+siz=0;
+for i=1:size(ty(:,1))
+    if ty(i,4) >= 0
+        siz = siz+1;
+    end
+end
+h2_real_PD = zeros(siz,2);
+u_real_PD=zeros(siz,2);
+
+counter=0;
+for i=1:size(ty(:,1))
+    if ty(i,4)>=0
+        counter = counter+1;
+        h2_real_PD (counter,2) = ty(i,4);
+        h2_real_PD (counter,1) = ty(counter,1);
+        u_real_PD (counter,2) = ty(i,2);
+        u_real_PD (counter,1) = ty(counter,1);
+      
+    end
+end
+
+
+%h2_real_PD=[ty(:,1) ty(:,4)];
+%u_real_PD=[ty(:,1) ty(:,2)];
 
 %% PID regulator
 load("WERKSPEJS_REGULATORS/pid_test")
-h2_real_PID=[ty(:,1) ty(:,4)];
+%h2_real_PID=[ty(:,1) ty(:,4)];
+%u_real_PID=[ty(:,1) ty(:,2)];
+
+siz=0;
+for i=1:size(ty(:,1))
+    if ty(i,4) >= 0
+        siz = siz+1;
+    end
+end
+h2_real_PID = zeros(siz,2);
+u_real_PID=zeros(siz,2);
+
+counter=0;
+for i=1:size(ty(:,1))
+    if ty(i,4)>=0
+        counter = counter+1;
+        h2_real_PID (counter,2) = ty(i,4);
+        h2_real_PID (counter,1) = ty(counter,1);
+        u_real_PID (counter,2) = ty(i,2);
+        u_real_PID (counter,1) = ty(counter,1);
+      
+    end
+end
+
 
 [Ku, Fk, wu, wf] = margin(H)
 Tu = 2*pi/wu
@@ -113,8 +149,30 @@ kd_PID = 30
 
 %% PI regulator
 load("WERKSPEJS_REGULATORS/pi_test")
-h2_real_PI=[ty(:,1) ty(:,4)];
-u_real_PI=[ty(:,1) ty(:,2)];
+
+siz=0;
+for i=1:size(ty(:,1))
+    if ty(i,4) >= 0
+        siz = siz+1;
+    end
+end
+h2_real_PI = zeros(siz,2);
+u_real_PI=zeros(siz,2);
+
+counter=0;
+for i=1:size(ty(:,1))
+    if ty(i,4)>=0
+        counter = counter+1;
+        h2_real_PI (counter,2) = ty(i,4);
+        h2_real_PI (counter,1) = ty(counter,1);
+        u_real_PI (counter,2) = ty(i,2);
+        u_real_PI (counter,1) = ty(counter,1);
+      
+    end
+end
+    
+%h2_real_PI=[ty(:,1) ty(:,4)];
+%u_real_PI=[ty(:,1) ty(:,2)];
 %kp_PI = 4.4816;
 %ki_PI = 0.2801
 %konstanty odladene
